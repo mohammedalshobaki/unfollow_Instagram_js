@@ -6,11 +6,11 @@
 	},
 	"item": [
 		{
-			"name": "Addresses",
+			"name": "Addresses1",
 			"item": [
 				{
 					"name": "Add Address",
-					"_postman_id": "a1b35759-38f6-450a-ae35-da9c3a20ec10",
+					"id": "a1b35759-38f6-450a-ae35-da9c3a20ec10",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -51,80 +51,6 @@
 						"url": "{{url}}/shared-core/v1/addresses"
 					},
 					"response": [
-						{
-							"id": "3b6c0444-0e06-49e5-bb3b-cb80a9a82750",
-							"name": "Failed Response (Validation)",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "X-User-Id",
-										"value": "1",
-										"type": "text"
-									},
-									{
-										"key": "X-User-Uuid",
-										"value": "1",
-										"type": "text"
-									},
-									{
-										"key": "X-Client-Code",
-										"value": "mp",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "        {\n          \"address_label\": \"Address2\",\n          \"area\": \"Area1\",\n          \"street\": \"Street1\",\n          \"building_name\": \"building_name1\",\n          \"houseNumber\": \"111\",\n          \"floorNumber\": \"123\",\n          \"fullContactName\": \"Deyaa Maali\",\n          \"countryCode\": \"962\",\n          \"phoneNumber\": \"0777777777\",\n          \"countryIso\": null,\n          \"city\": \"Amman\",\n          \"state\": null,\n          \"zipcode\": \"123h\",\n          \"isDefaultShippingAddress\": true,\n          \"isDefaultBillingAddress\": true\n        }\n",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{url}}/addresses"
-							},
-							"status": "UNPROCESSABLE ENTITY",
-							"code": 422,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "accept",
-									"value": "application/json"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "Access-Control-Allow-Headers",
-									"value": "*"
-								},
-								{
-									"key": "Access-Control-Allow-Methods",
-									"value": "*"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Content-Length",
-									"value": "175"
-								},
-								{
-									"key": "Server",
-									"value": "Werkzeug/1.0.1 Python/3.8.11"
-								},
-								{
-									"key": "Date",
-									"value": "Sun, 15 Aug 2021 11:38:33 GMT"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"requestId\": \"da3e53f3-4f5f-43db-b093-941500885943\",\n    \"timestamps\": \"2021-08-15T11:38:33.170Z\",\n    \"data\": {},\n    \"meta\": {},\n    \"errors\": {\n        \"countryIso\": \"The countryIso field can not be null\"\n    }\n}"
-						},
 						{
 							"id": "a4cf01c9-488e-4c47-9fec-d106dc09a08d",
 							"name": "Success Response",
@@ -198,12 +124,86 @@
 							"cookie": [],
 							"responseTime": null,
 							"body": "{\n    \"requestId\": \"4bf9d8b8-773f-4e12-acde-1d988c573bce\",\n    \"timestamps\": \"2021-08-15T11:32:32.380Z\",\n    \"data\": {\n        \"id\": 1,\n        \"address_label\": \"Address1\",\n        \"area\": \"Area1\",\n        \"street\": \"Street1\",\n        \"building_name\": \"building_name1\",\n        \"houseNumber\": \"111\",\n        \"floorNumber\": \"123\",\n        \"fullContactName\": \"Deyaa Maali\",\n        \"countryCode\": \"962\",\n        \"phoneNumber\": \"0777777777\",\n        \"city\": \"Amman\",\n        \"state\": null,\n        \"zipcode\": \"123h\",\n        \"isDefaultShippingAddress\": true,\n        \"isDefaultBillingAddress\": true,\n        \"countryIso\": \"jo\",\n        \"created_at\": \"2021-08-15T11:32:32.000Z\",\n        \"updated_at\": \"2021-08-15T11:32:32.000Z\"\n    },\n    \"meta\": {}\n}"
+						},
+						{
+							"id": "3b6c0444-0e06-49e5-bb3b-cb80a9a82750",
+							"name": "Failed Response (Validation)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-User-Id",
+										"value": "1",
+										"type": "text"
+									},
+									{
+										"key": "X-User-Uuid",
+										"value": "1",
+										"type": "text"
+									},
+									{
+										"key": "X-Client-Code",
+										"value": "mp",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "        {\n          \"address_label\": \"Address2\",\n          \"area\": \"Area1\",\n          \"street\": \"Street1\",\n          \"building_name\": \"building_name1\",\n          \"houseNumber\": \"111\",\n          \"floorNumber\": \"123\",\n          \"fullContactName\": \"Deyaa Maali\",\n          \"countryCode\": \"962\",\n          \"phoneNumber\": \"0777777777\",\n          \"countryIso\": null,\n          \"city\": \"Amman\",\n          \"state\": null,\n          \"zipcode\": \"123h\",\n          \"isDefaultShippingAddress\": true,\n          \"isDefaultBillingAddress\": true\n        }\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url}}/addresses"
+							},
+							"status": "UNPROCESSABLE ENTITY",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "accept",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "175"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.8.11"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 15 Aug 2021 11:38:33 GMT"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"requestId\": \"da3e53f3-4f5f-43db-b093-941500885943\",\n    \"timestamps\": \"2021-08-15T11:38:33.170Z\",\n    \"data\": {},\n    \"meta\": {},\n    \"errors\": {\n        \"countryIso\": \"The countryIso field can not be null\"\n    }\n}"
 						}
 					]
 				},
 				{
 					"name": "Delete Address",
-					"_postman_id": "aa3e6156-db15-44aa-b69d-7ff88ec2505c",
+					"id": "aa3e6156-db15-44aa-b69d-7ff88ec2505c",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -247,8 +247,7 @@
 								{
 									"id": "c719ae5a-b2f9-42db-b16b-c915ae8e1bb4",
 									"key": "address",
-									"value": "159",
-									"type": "string"
+									"value": "159"
 								}
 							]
 						}
@@ -384,7 +383,7 @@
 				},
 				{
 					"name": "Get Address",
-					"_postman_id": "034b3b7b-36e2-4f16-9383-d43a7897d663",
+					"id": "034b3b7b-36e2-4f16-9383-d43a7897d663",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -423,78 +422,12 @@
 								{
 									"id": "9d4eff35-f1c3-4330-9691-97bb4bc478d9",
 									"key": "address",
-									"value": null,
-									"type": "any"
+									"value": null
 								}
 							]
 						}
 					},
 					"response": [
-						{
-							"id": "6be790dc-21f7-499c-89a8-1c3fd1c3cd57",
-							"name": "Failed Response (Does Not Exist)",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "X-User-Id",
-										"value": "1",
-										"type": "text"
-									},
-									{
-										"key": "X-User-Uuid",
-										"value": "1",
-										"type": "text"
-									},
-									{
-										"key": "X-Client-Code",
-										"value": "mp",
-										"type": "text"
-									}
-								],
-								"url": "{{url}}/addresses/999"
-							},
-							"status": "NOT FOUND",
-							"code": 404,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "accept",
-									"value": "application/json"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "Access-Control-Allow-Headers",
-									"value": "*"
-								},
-								{
-									"key": "Access-Control-Allow-Methods",
-									"value": "*"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Content-Length",
-									"value": "211"
-								},
-								{
-									"key": "Server",
-									"value": "Werkzeug/1.0.1 Python/3.8.11"
-								},
-								{
-									"key": "Date",
-									"value": "Sun, 15 Aug 2021 12:07:52 GMT"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"requestId\": \"f4ca3336-3a60-4b59-a428-836132923cd0\",\n    \"timestamps\": \"2021-08-15T12:07:52.203Z\",\n    \"data\": {},\n    \"meta\": {},\n    \"errors\": {\n        \"message\": \"address with id: 999 does not exist for profile with id 1 and clientCode mp\"\n    }\n}"
-						},
 						{
 							"id": "d3a0472d-21ab-4207-87a6-2d05f4cc9dc7",
 							"name": "Success Response",
@@ -559,12 +492,77 @@
 							"cookie": [],
 							"responseTime": null,
 							"body": "{\n    \"requestId\": \"6efeecd7-06bc-4b26-9507-bacca4b0cd36\",\n    \"timestamps\": \"2021-08-15T12:05:24.084Z\",\n    \"data\": {\n        \"id\": 4,\n        \"address_label\": \"Address4\",\n        \"area\": \"Area4\",\n        \"street\": \"Street4\",\n        \"building_name\": \"building_name4\",\n        \"houseNumber\": \"111\",\n        \"floorNumber\": \"123\",\n        \"fullContactName\": \"Deyaa Maali\",\n        \"countryCode\": \"962\",\n        \"phoneNumber\": \"0777777777\",\n        \"city\": \"Amman\",\n        \"state\": null,\n        \"zipcode\": \"123h\",\n        \"isDefaultShippingAddress\": false,\n        \"isDefaultBillingAddress\": false,\n        \"countryIso\": \"jo\",\n        \"created_at\": \"2021-08-15T11:56:55.000Z\",\n        \"updated_at\": \"2021-08-15T11:58:14.000Z\"\n    },\n    \"meta\": {}\n}"
+						},
+						{
+							"id": "6be790dc-21f7-499c-89a8-1c3fd1c3cd57",
+							"name": "Failed Response (Does Not Exist)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-User-Id",
+										"value": "1",
+										"type": "text"
+									},
+									{
+										"key": "X-User-Uuid",
+										"value": "1",
+										"type": "text"
+									},
+									{
+										"key": "X-Client-Code",
+										"value": "mp",
+										"type": "text"
+									}
+								],
+								"url": "{{url}}/addresses/999"
+							},
+							"status": "NOT FOUND",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "accept",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "211"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.8.11"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 15 Aug 2021 12:07:52 GMT"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"requestId\": \"f4ca3336-3a60-4b59-a428-836132923cd0\",\n    \"timestamps\": \"2021-08-15T12:07:52.203Z\",\n    \"data\": {},\n    \"meta\": {},\n    \"errors\": {\n        \"message\": \"address with id: 999 does not exist for profile with id 1 and clientCode mp\"\n    }\n}"
 						}
 					]
 				},
 				{
 					"name": "Get Addresses",
-					"_postman_id": "0c810811-3f19-4b4a-b49f-59857c41f93a",
+					"id": "0c810811-3f19-4b4a-b49f-59857c41f93a",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -730,7 +728,7 @@
 				},
 				{
 					"name": "Update Address",
-					"_postman_id": "2a0d11f8-fb73-4676-86b7-392b1b512daf",
+					"id": "2a0d11f8-fb73-4676-86b7-392b1b512daf",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -778,93 +776,12 @@
 								{
 									"id": "3d3a426b-a2a5-4e7a-b712-d34075aec417",
 									"key": "address",
-									"value": "163",
-									"type": "string"
+									"value": "163"
 								}
 							]
 						}
 					},
 					"response": [
-						{
-							"id": "30c861d0-7695-4f7c-bbe3-64417acbd09f",
-							"name": "Failed Response (Does Not Exist)",
-							"originalRequest": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "X-User-Id",
-										"value": "1",
-										"type": "text"
-									},
-									{
-										"key": "X-User-Uuid",
-										"value": "1",
-										"type": "text"
-									},
-									{
-										"key": "X-Client-Code",
-										"value": "mp",
-										"type": "text"
-									},
-									{
-										"key": "X-Api-Key",
-										"value": "mp",
-										"type": "text",
-										"disabled": true
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "        {\n          \"address_label\": \"Address1-Updated\",\n          \"area\": \"Area1-Updated\",\n          \"street\": \"Street1-Updated\",\n          \"building_name\": \"building_name1-Updated\",\n          \"houseNumber\": \"111\",\n          \"floorNumber\": \"123\",\n          \"fullContactName\": \"Deyaa Maali\",\n          \"countryCode\": \"962\",\n          \"phoneNumber\": \"0777777777\",\n          \"countryIso\": \"jo\",\n          \"city\": \"Amman\",\n          \"state\": null,\n          \"zipcode\": \"123h\",\n          \"isDefaultShippingAddress\": true,\n          \"isDefaultBillingAddress\": true\n        }",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{url}}/addresses/999"
-							},
-							"status": "NOT FOUND",
-							"code": 404,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "accept",
-									"value": "application/json"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "Access-Control-Allow-Headers",
-									"value": "*"
-								},
-								{
-									"key": "Access-Control-Allow-Methods",
-									"value": "*"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Content-Length",
-									"value": "156"
-								},
-								{
-									"key": "Server",
-									"value": "Werkzeug/1.0.1 Python/3.8.11"
-								},
-								{
-									"key": "Date",
-									"value": "Sun, 15 Aug 2021 12:10:04 GMT"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"requestId\": \"a213023f-b56a-419d-ada7-f3f8541dbfcb\",\n    \"timestamps\": \"2021-08-15T12:10:03.934Z\",\n    \"data\": {},\n    \"meta\": {},\n    \"errors\": {\n        \"message\": \"Address is not found\"\n    }\n}"
-						},
 						{
 							"id": "bed19326-8be7-431a-a5c2-5eaf71d14a11",
 							"name": "Success Response",
@@ -944,18 +861,98 @@
 							"cookie": [],
 							"responseTime": null,
 							"body": "{\n    \"requestId\": \"354e3294-f6e7-4efb-a79d-1b90e114ef43\",\n    \"timestamps\": \"2021-08-15T11:58:14.879Z\",\n    \"data\": {\n        \"id\": 1,\n        \"address_label\": \"Address1-Updated\",\n        \"area\": \"Area1-Updated\",\n        \"street\": \"Street1-Updated\",\n        \"building_name\": \"building_name1-Updated\",\n        \"houseNumber\": \"111\",\n        \"floorNumber\": \"123\",\n        \"fullContactName\": \"Deyaa Maali\",\n        \"countryCode\": \"962\",\n        \"phoneNumber\": \"0777777777\",\n        \"city\": \"Amman\",\n        \"state\": null,\n        \"zipcode\": \"123h\",\n        \"isDefaultShippingAddress\": true,\n        \"isDefaultBillingAddress\": true,\n        \"countryIso\": \"jo\",\n        \"created_at\": \"2021-08-15T11:49:51.000Z\",\n        \"updated_at\": \"2021-08-15T11:58:14.000Z\"\n    },\n    \"meta\": {}\n}"
+						},
+						{
+							"id": "30c861d0-7695-4f7c-bbe3-64417acbd09f",
+							"name": "Failed Response (Does Not Exist)",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "X-User-Id",
+										"value": "1",
+										"type": "text"
+									},
+									{
+										"key": "X-User-Uuid",
+										"value": "1",
+										"type": "text"
+									},
+									{
+										"key": "X-Client-Code",
+										"value": "mp",
+										"type": "text"
+									},
+									{
+										"key": "X-Api-Key",
+										"value": "mp",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "        {\n          \"address_label\": \"Address1-Updated\",\n          \"area\": \"Area1-Updated\",\n          \"street\": \"Street1-Updated\",\n          \"building_name\": \"building_name1-Updated\",\n          \"houseNumber\": \"111\",\n          \"floorNumber\": \"123\",\n          \"fullContactName\": \"Deyaa Maali\",\n          \"countryCode\": \"962\",\n          \"phoneNumber\": \"0777777777\",\n          \"countryIso\": \"jo\",\n          \"city\": \"Amman\",\n          \"state\": null,\n          \"zipcode\": \"123h\",\n          \"isDefaultShippingAddress\": true,\n          \"isDefaultBillingAddress\": true\n        }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url}}/addresses/999"
+							},
+							"status": "NOT FOUND",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "accept",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "156"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.8.11"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 15 Aug 2021 12:10:04 GMT"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"requestId\": \"a213023f-b56a-419d-ada7-f3f8541dbfcb\",\n    \"timestamps\": \"2021-08-15T12:10:03.934Z\",\n    \"data\": {},\n    \"meta\": {},\n    \"errors\": {\n        \"message\": \"Address is not found\"\n    }\n}"
 						}
 					]
 				}
 			],
-			"_postman_id": "8d591250-d783-4337-9a53-b21973526c30"
+			"id": "8d591250-d783-4337-9a53-b21973526c30"
 		},
 		{
 			"name": "Clients",
 			"item": [
 				{
 					"name": "Get Client",
-					"_postman_id": "ecfb5f4e-4475-46c5-b630-90b849f9cce8",
+					"id": "ecfb5f4e-4475-46c5-b630-90b849f9cce8",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -994,8 +991,7 @@
 								{
 									"id": "f13abed0-09f5-4ba6-86f1-9b1709ca195e",
 									"key": "client",
-									"value": null,
-									"type": "any"
+									"value": null
 								}
 							]
 						}
@@ -1069,14 +1065,14 @@
 					]
 				}
 			],
-			"_postman_id": "af6ef84f-b92f-48f8-a2c3-947ea54e59d6"
+			"id": "af6ef84f-b92f-48f8-a2c3-947ea54e59d6"
 		},
 		{
 			"name": "Countries",
 			"item": [
 				{
 					"name": "Get Countries",
-					"_postman_id": "26d9dcb4-3d9d-4490-b6f7-1e5692c7e8ee",
+					"id": "26d9dcb4-3d9d-4490-b6f7-1e5692c7e8ee",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1191,14 +1187,14 @@
 					]
 				}
 			],
-			"_postman_id": "0ea0dc34-f3da-4def-b53c-b3279a893be6"
+			"id": "0ea0dc34-f3da-4def-b53c-b3279a893be6"
 		},
 		{
 			"name": "Cities",
 			"item": [
 				{
 					"name": "Get Cities ",
-					"_postman_id": "f122e5c4-6b26-46dc-a5b6-48e852f6ba9c",
+					"id": "f122e5c4-6b26-46dc-a5b6-48e852f6ba9c",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1250,8 +1246,7 @@
 								{
 									"id": "26c3743d-1ec1-4179-b9af-db01ef60c349",
 									"key": "Iso3code",
-									"value": "ARE",
-									"type": "string"
+									"value": "ARE"
 								}
 							]
 						}
@@ -1381,7 +1376,7 @@
 					]
 				}
 			],
-			"_postman_id": "ecd8c072-87e7-4b9c-ab7e-2324f6cad814"
+			"id": "ecd8c072-87e7-4b9c-ab7e-2324f6cad814"
 		}
 	],
 	"event": [
@@ -1408,10 +1403,9 @@
 	],
 	"variable": [
 		{
-			"id": "7461f82f-2d16-4136-a47a-89a8e311f40c",
+			"id": "878585ed-2200-4338-a3f2-627855f758db",
 			"key": "Token",
-			"value": "",
-			"type": "string"
+			"value": ""
 		}
 	]
 }
