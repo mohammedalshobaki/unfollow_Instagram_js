@@ -1,0 +1,1417 @@
+{
+	"info": {
+		"_postman_id": "4ee7f1d5-126e-4ba2-8421-110f67964cfa",
+		"name": "Shared Services Copy 2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Addresses",
+			"item": [
+				{
+					"name": "Add Address",
+					"_postman_id": "a1b35759-38f6-450a-ae35-da9c3a20ec10",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Client-Code",
+								"value": "mp",
+								"type": "text"
+							},
+							{
+								"key": "x-api-key",
+								"value": "{{x-api-key}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "        {\n          \"address_label\": \"{{$randomStreetAddress}}\",\n          \"area\": \"{{$randomStreetName}}\",\n          \"street\": \"{{$randomStreetName}}\",\n          \"building_name\": \"{{$randomInt}}\",\n          \"house_number\": \"{{$randomInt}}\",\n          \"floor_number\": \"{{$randomInt}}\",\n          \"full_contact_name\": \"{{$randomNamePrefix}}\",\n          \"country_code\": \"962\",\n          \"phone_number\": \"0777777898\",\n          \"email\":\"rousan@gmail.com\",\n          \"country_iso\": \"jo\",\n          \"city\": \"{{$randomCity}}\",\n          \"state\": null,\n          \"zipcode\": \"{{$randomInt}}\",\n          \"is_default_shipping_address\": true,\n          \"is_default_billing_address\": true\n        }\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/shared-core/v1/addresses"
+					},
+					"response": [
+						{
+							"id": "3b6c0444-0e06-49e5-bb3b-cb80a9a82750",
+							"name": "Failed Response (Validation)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-User-Id",
+										"value": "1",
+										"type": "text"
+									},
+									{
+										"key": "X-User-Uuid",
+										"value": "1",
+										"type": "text"
+									},
+									{
+										"key": "X-Client-Code",
+										"value": "mp",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "        {\n          \"address_label\": \"Address2\",\n          \"area\": \"Area1\",\n          \"street\": \"Street1\",\n          \"building_name\": \"building_name1\",\n          \"houseNumber\": \"111\",\n          \"floorNumber\": \"123\",\n          \"fullContactName\": \"Deyaa Maali\",\n          \"countryCode\": \"962\",\n          \"phoneNumber\": \"0777777777\",\n          \"countryIso\": null,\n          \"city\": \"Amman\",\n          \"state\": null,\n          \"zipcode\": \"123h\",\n          \"isDefaultShippingAddress\": true,\n          \"isDefaultBillingAddress\": true\n        }\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url}}/addresses"
+							},
+							"status": "UNPROCESSABLE ENTITY",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "accept",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "175"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.8.11"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 15 Aug 2021 11:38:33 GMT"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"requestId\": \"da3e53f3-4f5f-43db-b093-941500885943\",\n    \"timestamps\": \"2021-08-15T11:38:33.170Z\",\n    \"data\": {},\n    \"meta\": {},\n    \"errors\": {\n        \"countryIso\": \"The countryIso field can not be null\"\n    }\n}"
+						},
+						{
+							"id": "a4cf01c9-488e-4c47-9fec-d106dc09a08d",
+							"name": "Success Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-User-Id",
+										"value": "1",
+										"type": "text"
+									},
+									{
+										"key": "X-User-Uuid",
+										"value": "1",
+										"type": "text"
+									},
+									{
+										"key": "X-Client-Code",
+										"value": "mp",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "        {\n          \"address_label\": \"Address1\",\n          \"area\": \"Area1\",\n          \"street\": \"Street1\",\n          \"building_name\": \"building_name1\",\n          \"houseNumber\": \"111\",\n          \"floorNumber\": \"123\",\n          \"fullContactName\": \"Deyaa Maali\",\n          \"countryCode\": \"962\",\n          \"phoneNumber\": \"0777777777\",\n          \"countryIso\": \"jo\",\n          \"city\": \"Amman\",\n          \"state\": null,\n          \"zipcode\": \"123h\",\n          \"isDefaultShippingAddress\": true,\n          \"isDefaultBillingAddress\": true\n        }\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url}}/addresses"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "accept",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "534"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.8.11"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 15 Aug 2021 11:32:32 GMT"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"requestId\": \"4bf9d8b8-773f-4e12-acde-1d988c573bce\",\n    \"timestamps\": \"2021-08-15T11:32:32.380Z\",\n    \"data\": {\n        \"id\": 1,\n        \"address_label\": \"Address1\",\n        \"area\": \"Area1\",\n        \"street\": \"Street1\",\n        \"building_name\": \"building_name1\",\n        \"houseNumber\": \"111\",\n        \"floorNumber\": \"123\",\n        \"fullContactName\": \"Deyaa Maali\",\n        \"countryCode\": \"962\",\n        \"phoneNumber\": \"0777777777\",\n        \"city\": \"Amman\",\n        \"state\": null,\n        \"zipcode\": \"123h\",\n        \"isDefaultShippingAddress\": true,\n        \"isDefaultBillingAddress\": true,\n        \"countryIso\": \"jo\",\n        \"created_at\": \"2021-08-15T11:32:32.000Z\",\n        \"updated_at\": \"2021-08-15T11:32:32.000Z\"\n    },\n    \"meta\": {}\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Address",
+					"_postman_id": "aa3e6156-db15-44aa-b69d-7ff88ec2505c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Client-Code",
+								"value": "mp",
+								"type": "text"
+							},
+							{
+								"key": "x-api-key",
+								"value": "{{x-api-key}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}{{url}}/shared-core/v1/addresses/:address",
+							"host": [
+								"{{url}}{{url}}"
+							],
+							"path": [
+								"shared-core",
+								"v1",
+								"addresses",
+								":address"
+							],
+							"variable": [
+								{
+									"id": "c719ae5a-b2f9-42db-b16b-c915ae8e1bb4",
+									"key": "address",
+									"value": "159",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "23f5a83f-303f-45a5-89bb-0072836413cd",
+							"name": "Failed Response (Does Not Exist)",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "X-User-Id",
+										"value": "1",
+										"type": "text"
+									},
+									{
+										"key": "X-User-Uuid",
+										"value": "1",
+										"type": "text"
+									},
+									{
+										"key": "X-Client-Code",
+										"value": "mp",
+										"type": "text"
+									}
+								],
+								"url": "{{url}}/addresses/122"
+							},
+							"status": "NOT FOUND",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "accept",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "211"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.8.11"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 15 Aug 2021 11:41:37 GMT"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"requestId\": \"6a52f37d-c42e-4be8-8793-21231f47c381\",\n    \"timestamps\": \"2021-08-15T11:41:36.889Z\",\n    \"data\": {},\n    \"meta\": {},\n    \"errors\": {\n        \"message\": \"address with id: 122 does not exist for profile with id 1 and clientCode mp\"\n    }\n}"
+						},
+						{
+							"id": "80487029-6eac-4a48-a8c5-8421985af42a",
+							"name": "Success Response",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "X-User-Id",
+										"value": "1",
+										"type": "text"
+									},
+									{
+										"key": "X-User-Uuid",
+										"value": "1",
+										"type": "text"
+									},
+									{
+										"key": "X-Client-Code",
+										"value": "mp",
+										"type": "text"
+									}
+								],
+								"url": "{{url}}/addresses/2"
+							},
+							"status": "NO CONTENT",
+							"code": 204,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "accept",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.8.11"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 15 Aug 2021 11:53:18 GMT"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Get Address",
+					"_postman_id": "034b3b7b-36e2-4f16-9383-d43a7897d663",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Client-Code",
+								"value": "mp",
+								"type": "text"
+							},
+							{
+								"key": "x-api-key",
+								"value": "{{x-api-key}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/shared-core/v1/addresses/:address",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"shared-core",
+								"v1",
+								"addresses",
+								":address"
+							],
+							"variable": [
+								{
+									"id": "9d4eff35-f1c3-4330-9691-97bb4bc478d9",
+									"key": "address",
+									"value": null,
+									"type": "any"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "6be790dc-21f7-499c-89a8-1c3fd1c3cd57",
+							"name": "Failed Response (Does Not Exist)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-User-Id",
+										"value": "1",
+										"type": "text"
+									},
+									{
+										"key": "X-User-Uuid",
+										"value": "1",
+										"type": "text"
+									},
+									{
+										"key": "X-Client-Code",
+										"value": "mp",
+										"type": "text"
+									}
+								],
+								"url": "{{url}}/addresses/999"
+							},
+							"status": "NOT FOUND",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "accept",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "211"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.8.11"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 15 Aug 2021 12:07:52 GMT"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"requestId\": \"f4ca3336-3a60-4b59-a428-836132923cd0\",\n    \"timestamps\": \"2021-08-15T12:07:52.203Z\",\n    \"data\": {},\n    \"meta\": {},\n    \"errors\": {\n        \"message\": \"address with id: 999 does not exist for profile with id 1 and clientCode mp\"\n    }\n}"
+						},
+						{
+							"id": "d3a0472d-21ab-4207-87a6-2d05f4cc9dc7",
+							"name": "Success Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-User-Id",
+										"value": "1",
+										"type": "text"
+									},
+									{
+										"key": "X-User-Uuid",
+										"value": "1",
+										"type": "text"
+									},
+									{
+										"key": "X-Client-Code",
+										"value": "mp",
+										"type": "text"
+									}
+								],
+								"url": "{{url}}/addresses/4"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "accept",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "536"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.8.11"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 15 Aug 2021 12:05:24 GMT"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"requestId\": \"6efeecd7-06bc-4b26-9507-bacca4b0cd36\",\n    \"timestamps\": \"2021-08-15T12:05:24.084Z\",\n    \"data\": {\n        \"id\": 4,\n        \"address_label\": \"Address4\",\n        \"area\": \"Area4\",\n        \"street\": \"Street4\",\n        \"building_name\": \"building_name4\",\n        \"houseNumber\": \"111\",\n        \"floorNumber\": \"123\",\n        \"fullContactName\": \"Deyaa Maali\",\n        \"countryCode\": \"962\",\n        \"phoneNumber\": \"0777777777\",\n        \"city\": \"Amman\",\n        \"state\": null,\n        \"zipcode\": \"123h\",\n        \"isDefaultShippingAddress\": false,\n        \"isDefaultBillingAddress\": false,\n        \"countryIso\": \"jo\",\n        \"created_at\": \"2021-08-15T11:56:55.000Z\",\n        \"updated_at\": \"2021-08-15T11:58:14.000Z\"\n    },\n    \"meta\": {}\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Addresses",
+					"_postman_id": "0c810811-3f19-4b4a-b49f-59857c41f93a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Client-Code",
+								"value": "mp",
+								"type": "text"
+							},
+							{
+								"key": "x-api-key",
+								"value": "{{x-api-key}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "{{url}}/shared-core/v1/addresses"
+					},
+					"response": [
+						{
+							"id": "22653144-e289-4e8c-8fcf-d9cfd835295a",
+							"name": "Success Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-User-Uuid",
+										"value": "1",
+										"type": "text"
+									},
+									{
+										"key": "X-User-Id",
+										"value": "1",
+										"type": "text"
+									},
+									{
+										"key": "X-Client-Code",
+										"value": "mp",
+										"type": "text"
+									}
+								],
+								"url": "{{url}}/addresses"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "accept",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1502"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.8.11"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 15 Aug 2021 12:04:11 GMT"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"requestId\": \"4a11addc-04c1-40fc-874e-8beec6417568\",\n    \"timestamps\": \"2021-08-15T12:04:10.849Z\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"address_label\": \"Address1-Updated\",\n            \"area\": \"Area1-Updated\",\n            \"street\": \"Street1-Updated\",\n            \"building_name\": \"building_name1-Updated\",\n            \"houseNumber\": \"111\",\n            \"floorNumber\": \"123\",\n            \"fullContactName\": \"Deyaa Maali\",\n            \"countryCode\": \"962\",\n            \"phoneNumber\": \"0777777777\",\n            \"city\": \"Amman\",\n            \"state\": null,\n            \"zipcode\": \"123h\",\n            \"isDefaultShippingAddress\": true,\n            \"isDefaultBillingAddress\": true,\n            \"countryIso\": \"jo\",\n            \"created_at\": \"2021-08-15T11:49:51.000Z\",\n            \"updated_at\": \"2021-08-15T11:58:14.000Z\"\n        },\n        {\n            \"id\": 3,\n            \"address_label\": \"Address3\",\n            \"area\": \"Area3\",\n            \"street\": \"Street3\",\n            \"building_name\": \"building_name3\",\n            \"houseNumber\": \"111\",\n            \"floorNumber\": \"123\",\n            \"fullContactName\": \"Deyaa Maali\",\n            \"countryCode\": \"962\",\n            \"phoneNumber\": \"0777777777\",\n            \"city\": \"Amman\",\n            \"state\": null,\n            \"zipcode\": \"123h\",\n            \"isDefaultShippingAddress\": false,\n            \"isDefaultBillingAddress\": false,\n            \"countryIso\": \"jo\",\n            \"created_at\": \"2021-08-15T11:53:45.000Z\",\n            \"updated_at\": \"2021-08-15T11:56:55.000Z\"\n        },\n        {\n            \"id\": 4,\n            \"address_label\": \"Address4\",\n            \"area\": \"Area4\",\n            \"street\": \"Street4\",\n            \"building_name\": \"building_name4\",\n            \"houseNumber\": \"111\",\n            \"floorNumber\": \"123\",\n            \"fullContactName\": \"Deyaa Maali\",\n            \"countryCode\": \"962\",\n            \"phoneNumber\": \"0777777777\",\n            \"city\": \"Amman\",\n            \"state\": null,\n            \"zipcode\": \"123h\",\n            \"isDefaultShippingAddress\": false,\n            \"isDefaultBillingAddress\": false,\n            \"countryIso\": \"jo\",\n            \"created_at\": \"2021-08-15T11:56:55.000Z\",\n            \"updated_at\": \"2021-08-15T11:58:14.000Z\"\n        }\n    ],\n    \"meta\": {\n        \"count\": 3,\n        \"totalPages\": 1,\n        \"nextPage\": 0,\n        \"previousPage\": 1,\n        \"currentPage\": 1,\n        \"limit\": 5\n    }\n}"
+						},
+						{
+							"id": "34735675-5b5d-4d2a-9f15-81728cd9b50a",
+							"name": "Failed Response (Client Does Not Exist)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-User-Uuid",
+										"value": "1",
+										"type": "text"
+									},
+									{
+										"key": "X-User-Id",
+										"value": "1",
+										"type": "text"
+									},
+									{
+										"key": "X-Client-Code",
+										"value": "does-not-exist",
+										"type": "text"
+									}
+								],
+								"url": "{{url}}/addresses"
+							},
+							"status": "NOT FOUND",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "accept",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "182"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.8.11"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 15 Aug 2021 12:08:48 GMT"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"requestId\": \"84f8803a-2875-4835-893c-468e54aed2cb\",\n    \"timestamps\": \"2021-08-15T12:08:48.392Z\",\n    \"data\": {},\n    \"meta\": {},\n    \"errors\": {\n        \"message\": \"client with code does-not-exist does not exist\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Address",
+					"_postman_id": "2a0d11f8-fb73-4676-86b7-392b1b512daf",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Client-Code",
+								"value": "mp",
+								"type": "text"
+							},
+							{
+								"key": "X-Api-Key",
+								"value": "{{x-api-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "        {\n          \"address_label\": \"Address1-Updated\",\n          \"area\": \"Area1-Updated\",\n          \"street\": \"Street1-Updated\",\n          \"building_name\": \"building_name1-Updated\",\n          \"houseNumber\": \"111\",\n          \"floorNumber\": \"123\",\n          \"fullContactName\": \"Deyaa Maali\",\n          \"countryCode\": \"962\",\n          \"phoneNumber\": \"0777777777\",\n          \"email\": \"bello@gmail.com\",\n          \"countryIso\": \"jo\",\n          \"city\": \"Amman\",\n          \"state\": null,\n          \"zipcode\": \"123h\",\n          \"isDefaultShippingAddress\": true,\n          \"isDefaultBillingAddress\": true\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/shared-core/v1/addresses/:address",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"shared-core",
+								"v1",
+								"addresses",
+								":address"
+							],
+							"variable": [
+								{
+									"id": "3d3a426b-a2a5-4e7a-b712-d34075aec417",
+									"key": "address",
+									"value": "163",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "30c861d0-7695-4f7c-bbe3-64417acbd09f",
+							"name": "Failed Response (Does Not Exist)",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "X-User-Id",
+										"value": "1",
+										"type": "text"
+									},
+									{
+										"key": "X-User-Uuid",
+										"value": "1",
+										"type": "text"
+									},
+									{
+										"key": "X-Client-Code",
+										"value": "mp",
+										"type": "text"
+									},
+									{
+										"key": "X-Api-Key",
+										"value": "mp",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "        {\n          \"address_label\": \"Address1-Updated\",\n          \"area\": \"Area1-Updated\",\n          \"street\": \"Street1-Updated\",\n          \"building_name\": \"building_name1-Updated\",\n          \"houseNumber\": \"111\",\n          \"floorNumber\": \"123\",\n          \"fullContactName\": \"Deyaa Maali\",\n          \"countryCode\": \"962\",\n          \"phoneNumber\": \"0777777777\",\n          \"countryIso\": \"jo\",\n          \"city\": \"Amman\",\n          \"state\": null,\n          \"zipcode\": \"123h\",\n          \"isDefaultShippingAddress\": true,\n          \"isDefaultBillingAddress\": true\n        }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url}}/addresses/999"
+							},
+							"status": "NOT FOUND",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "accept",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "156"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.8.11"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 15 Aug 2021 12:10:04 GMT"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"requestId\": \"a213023f-b56a-419d-ada7-f3f8541dbfcb\",\n    \"timestamps\": \"2021-08-15T12:10:03.934Z\",\n    \"data\": {},\n    \"meta\": {},\n    \"errors\": {\n        \"message\": \"Address is not found\"\n    }\n}"
+						},
+						{
+							"id": "bed19326-8be7-431a-a5c2-5eaf71d14a11",
+							"name": "Success Response",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "X-User-Id",
+										"value": "1",
+										"type": "text"
+									},
+									{
+										"key": "X-User-Uuid",
+										"value": "1",
+										"type": "text"
+									},
+									{
+										"key": "X-Client-Code",
+										"value": "mp",
+										"type": "text"
+									},
+									{
+										"key": "X-Api-Key",
+										"value": "mp",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "        {\n          \"address_label\": \"Address1-Updated\",\n          \"area\": \"Area1-Updated\",\n          \"street\": \"Street1-Updated\",\n          \"building_name\": \"building_name1-Updated\",\n          \"houseNumber\": \"111\",\n          \"floorNumber\": \"123\",\n          \"fullContactName\": \"Deyaa Maali\",\n          \"countryCode\": \"962\",\n          \"phoneNumber\": \"0777777777\",\n          \"countryIso\": \"jo\",\n          \"city\": \"Amman\",\n          \"state\": null,\n          \"zipcode\": \"123h\",\n          \"isDefaultShippingAddress\": true,\n          \"isDefaultBillingAddress\": true\n        }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{url}}/addresses/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "accept",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "566"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.8.11"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 15 Aug 2021 11:58:15 GMT"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"requestId\": \"354e3294-f6e7-4efb-a79d-1b90e114ef43\",\n    \"timestamps\": \"2021-08-15T11:58:14.879Z\",\n    \"data\": {\n        \"id\": 1,\n        \"address_label\": \"Address1-Updated\",\n        \"area\": \"Area1-Updated\",\n        \"street\": \"Street1-Updated\",\n        \"building_name\": \"building_name1-Updated\",\n        \"houseNumber\": \"111\",\n        \"floorNumber\": \"123\",\n        \"fullContactName\": \"Deyaa Maali\",\n        \"countryCode\": \"962\",\n        \"phoneNumber\": \"0777777777\",\n        \"city\": \"Amman\",\n        \"state\": null,\n        \"zipcode\": \"123h\",\n        \"isDefaultShippingAddress\": true,\n        \"isDefaultBillingAddress\": true,\n        \"countryIso\": \"jo\",\n        \"created_at\": \"2021-08-15T11:49:51.000Z\",\n        \"updated_at\": \"2021-08-15T11:58:14.000Z\"\n    },\n    \"meta\": {}\n}"
+						}
+					]
+				}
+			],
+			"_postman_id": "8d591250-d783-4337-9a53-b21973526c30"
+		},
+		{
+			"name": "Clients",
+			"item": [
+				{
+					"name": "Get Client",
+					"_postman_id": "ecfb5f4e-4475-46c5-b630-90b849f9cce8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Client-Code",
+								"value": "mp",
+								"type": "text"
+							},
+							{
+								"key": "x-api-key",
+								"value": "{{x-api-key}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/shared-core/v1/clients/:client",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"shared-core",
+								"v1",
+								"clients",
+								":client"
+							],
+							"variable": [
+								{
+									"id": "f13abed0-09f5-4ba6-86f1-9b1709ca195e",
+									"key": "client",
+									"value": null,
+									"type": "any"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "931c9b78-a643-432b-a55e-27fbac9db9ee",
+							"name": "Success Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-User-Id",
+										"value": "1",
+										"type": "text"
+									},
+									{
+										"key": "X-User-Uuid",
+										"value": "1",
+										"type": "text"
+									},
+									{
+										"key": "X-Client-Code",
+										"value": "mp",
+										"type": "text"
+									}
+								],
+								"url": "{{url}}/clients/mp"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "accept",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "217"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.8.11"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 15 Aug 2021 12:06:25 GMT"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"requestId\": \"4dfb8dbc-4186-4529-a4a6-6e41b4b9bb73\",\n    \"timestamps\": \"2021-08-15T12:06:25.459Z\",\n    \"data\": {\n        \"code\": \"mp\",\n        \"name\": \"Marketplace\",\n        \"isActive\": true,\n        \"configurations\": {\n            \"addressesPerUser\": 5\n        },\n        \"deletedAt\": null\n    },\n    \"meta\": {}\n}"
+						}
+					]
+				}
+			],
+			"_postman_id": "af6ef84f-b92f-48f8-a2c3-947ea54e59d6"
+		},
+		{
+			"name": "Countries",
+			"item": [
+				{
+					"name": "Get Countries",
+					"_postman_id": "26d9dcb4-3d9d-4490-b6f7-1e5692c7e8ee",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ar",
+								"type": "text"
+							},
+							{
+								"key": "X-User-Id",
+								"value": "1",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "X-User-Uuid",
+								"value": "1",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "X-Client-Code",
+								"value": "mp",
+								"type": "text"
+							},
+							{
+								"key": "x-api-key",
+								"value": "{{x-api-key}}",
+								"type": "text"
+							}
+						],
+						"url": "{{url}}/shared-core/v1/countries",
+						"description": "# List Countries\nlists countries for user, with their details\n## Header\n- Accept-Language : choose language to retrieve name in that language ('ar', 'en') \n\n## Response\n- name: name of country (according to chosen \"Accept-Language\")\n- isoCode: unique for each country (two letters)\n- phoneNumber: each countries phone code \n- emoji: flag for each country\n- emojiUnicode: Unicode for each emoji\n- timezone: time for each country"
+					},
+					"response": [
+						{
+							"id": "34892331-63a8-407f-a392-62444bf9563b",
+							"name": "Success Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "ar",
+										"type": "text"
+									},
+									{
+										"key": "X-User-Id",
+										"value": "1",
+										"type": "text"
+									},
+									{
+										"key": "X-User-Uuid",
+										"value": "1",
+										"type": "text"
+									},
+									{
+										"key": "X-Client-Code",
+										"value": "mp",
+										"type": "text"
+									}
+								],
+								"url": "{{url}}/countries"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "accept",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "33940"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/1.0.1 Python/3.8.11"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 15 Aug 2021 12:07:04 GMT"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"requestId\": \"f7b2e236-6203-4ab1-9d39-d35d9ac8a3a2\",\n    \"timestamps\": \"2021-08-15T12:07:04.020Z\",\n    \"data\": [\n        {\n            \"name\": \"United Arab Emirates\",\n            \"isoCode\": \"AE\",\n            \"phoneCode\": \"971\",\n            \"emoji\": \"🇦🇪\",\n            \"emojiUnicode\": \"U+1F1E6 U+1F1EA\",\n            \"timezone\": \"Asia/Dubai\"\n        },\n        {\n            \"name\": \"Andorra\",\n            \"isoCode\": \"AD\",\n            \"phoneCode\": \"376\",\n            \"emoji\": \"🇦🇩\",\n            \"emojiUnicode\": \"U+1F1E6 U+1F1E9\",\n            \"timezone\": \"Europe/Andorra\"\n        },\n        {\n            \"name\": \"Afghanistan\",\n            \"isoCode\": \"AF\",\n            \"phoneCode\": \"93\",\n            \"emoji\": \"🇦🇫\",\n            \"emojiUnicode\": \"U+1F1E6 U+1F1EB\",\n            \"timezone\": \"Asia/Kabul\"\n        },\n        {\n            \"name\": \"Antigua and Barbuda\",\n            \"isoCode\": \"AG\",\n            \"phoneCode\": \"1268\",\n            \"emoji\": \"🇦🇬\",\n            \"emojiUnicode\": \"U+1F1E6 U+1F1EC\",\n            \"timezone\": \"America/Antigua\"\n        },\n        {\n            \"name\": \"Anguilla\",\n            \"isoCode\": \"AI\",\n            \"phoneCode\": \"1264\",\n            \"emoji\": \"🇦🇮\",\n            \"emojiUnicode\": \"U+1F1E6 U+1F1EE\",\n            \"timezone\": \"America/Anguilla\"\n        },\n        {\n            \"name\": \"Albania\",\n            \"isoCode\": \"AL\",\n            \"phoneCode\": \"355\",\n            \"emoji\": \"🇦🇱\",\n            \"emojiUnicode\": \"U+1F1E6 U+1F1F1\",\n            \"timezone\": \"Europe/Tirane\"\n        },\n        {\n            \"name\": \"Armenia\",\n            \"isoCode\": \"AM\",\n            \"phoneCode\": \"374\",\n            \"emoji\": \"🇦🇲\",\n            \"emojiUnicode\": \"U+1F1E6 U+1F1F2\",\n            \"timezone\": \"Asia/Yerevan\"\n        },\n        {\n            \"name\": \"Angola\",\n            \"isoCode\": \"AO\",\n            \"phoneCode\": \"244\",\n            \"emoji\": \"🇦🇴\",\n            \"emojiUnicode\": \"U+1F1E6 U+1F1F4\",\n            \"timezone\": \"Africa/Luanda\"\n        },\n        {\n            \"name\": \"Antarctica\",\n            \"isoCode\": \"AQ\",\n            \"phoneCode\": \"672\",\n            \"emoji\": \"🇦🇶\",\n            \"emojiUnicode\": \"U+1F1E6 U+1F1F6\",\n            \"timezone\": \"Antarctica/Casey\"\n        },\n        {\n            \"name\": \"Argentina\",\n            \"isoCode\": \"AR\",\n            \"phoneCode\": \"54\",\n            \"emoji\": \"🇦🇷\",\n            \"emojiUnicode\": \"U+1F1E6 U+1F1F7\",\n            \"timezone\": \"America/Argentina/Buenos_Aires\"\n        },\n        {\n            \"name\": \"American Samoa\",\n            \"isoCode\": \"AS\",\n            \"phoneCode\": \"1684\",\n            \"emoji\": \"🇦🇸\",\n            \"emojiUnicode\": \"U+1F1E6 U+1F1F8\",\n            \"timezone\": \"Pacific/Pago_Pago\"\n        },\n        {\n            \"name\": \"Austria\",\n            \"isoCode\": \"AT\",\n            \"phoneCode\": \"43\",\n            \"emoji\": \"🇦🇹\",\n            \"emojiUnicode\": \"U+1F1E6 U+1F1F9\",\n            \"timezone\": \"Europe/Vienna\"\n        },\n        {\n            \"name\": \"Australia\",\n            \"isoCode\": \"AU\",\n            \"phoneCode\": \"61\",\n            \"emoji\": \"🇦🇺\",\n            \"emojiUnicode\": \"U+1F1E6 U+1F1FA\",\n            \"timezone\": \"Antarctica/Macquarie\"\n        },\n        {\n            \"name\": \"Aruba\",\n            \"isoCode\": \"AW\",\n            \"phoneCode\": \"297\",\n            \"emoji\": \"🇦🇼\",\n            \"emojiUnicode\": \"U+1F1E6 U+1F1FC\",\n            \"timezone\": \"America/Aruba\"\n        },\n        {\n            \"name\": \"Åland\",\n            \"isoCode\": \"AX\",\n            \"phoneCode\": \"358\",\n            \"emoji\": \"🇦🇽\",\n            \"emojiUnicode\": \"U+1F1E6 U+1F1FD\",\n            \"timezone\": \"Europe/Mariehamn\"\n        },\n        {\n            \"name\": \"Azerbaijan\",\n            \"isoCode\": \"AZ\",\n            \"phoneCode\": \"994\",\n            \"emoji\": \"🇦🇿\",\n            \"emojiUnicode\": \"U+1F1E6 U+1F1FF\",\n            \"timezone\": \"Asia/Baku\"\n        },\n        {\n            \"name\": \"Bosnia and Herzegovina\",\n            \"isoCode\": \"BA\",\n            \"phoneCode\": \"387\",\n            \"emoji\": \"🇧🇦\",\n            \"emojiUnicode\": \"U+1F1E7 U+1F1E6\",\n            \"timezone\": \"Europe/Sarajevo\"\n        },\n        {\n            \"name\": \"Barbados\",\n            \"isoCode\": \"BB\",\n            \"phoneCode\": \"1246\",\n            \"emoji\": \"🇧🇧\",\n            \"emojiUnicode\": \"U+1F1E7 U+1F1E7\",\n            \"timezone\": \"America/Barbados\"\n        },\n        {\n            \"name\": \"Bangladesh\",\n            \"isoCode\": \"BD\",\n            \"phoneCode\": \"880\",\n            \"emoji\": \"🇧🇩\",\n            \"emojiUnicode\": \"U+1F1E7 U+1F1E9\",\n            \"timezone\": \"Asia/Dacca\"\n        },\n        {\n            \"name\": \"Belgium\",\n            \"isoCode\": \"BE\",\n            \"phoneCode\": \"32\",\n            \"emoji\": \"🇧🇪\",\n            \"emojiUnicode\": \"U+1F1E7 U+1F1EA\",\n            \"timezone\": \"Europe/Brussels\"\n        },\n        {\n            \"name\": \"Burkina Faso\",\n            \"isoCode\": \"BF\",\n            \"phoneCode\": \"226\",\n            \"emoji\": \"🇧🇫\",\n            \"emojiUnicode\": \"U+1F1E7 U+1F1EB\",\n            \"timezone\": \"Africa/Ouagadougou\"\n        },\n        {\n            \"name\": \"Bulgaria\",\n            \"isoCode\": \"BG\",\n            \"phoneCode\": \"359\",\n            \"emoji\": \"🇧🇬\",\n            \"emojiUnicode\": \"U+1F1E7 U+1F1EC\",\n            \"timezone\": \"Europe/Sofia\"\n        },\n        {\n            \"name\": \"Bahrain\",\n            \"isoCode\": \"BH\",\n            \"phoneCode\": \"973\",\n            \"emoji\": \"🇧🇭\",\n            \"emojiUnicode\": \"U+1F1E7 U+1F1ED\",\n            \"timezone\": \"Asia/Bahrain\"\n        },\n        {\n            \"name\": \"Burundi\",\n            \"isoCode\": \"BI\",\n            \"phoneCode\": \"257\",\n            \"emoji\": \"🇧🇮\",\n            \"emojiUnicode\": \"U+1F1E7 U+1F1EE\",\n            \"timezone\": \"Africa/Bujumbura\"\n        },\n        {\n            \"name\": \"Benin\",\n            \"isoCode\": \"BJ\",\n            \"phoneCode\": \"229\",\n            \"emoji\": \"🇧🇯\",\n            \"emojiUnicode\": \"U+1F1E7 U+1F1EF\",\n            \"timezone\": \"Africa/Porto-Novo\"\n        },\n        {\n            \"name\": \"Saint Barthélemy\",\n            \"isoCode\": \"BL\",\n            \"phoneCode\": \"590\",\n            \"emoji\": \"🇧🇱\",\n            \"emojiUnicode\": \"U+1F1E7 U+1F1F1\",\n            \"timezone\": \"America/St_Barthelemy\"\n        },\n        {\n            \"name\": \"Bermuda\",\n            \"isoCode\": \"BM\",\n            \"phoneCode\": \"1441\",\n            \"emoji\": \"🇧🇲\",\n            \"emojiUnicode\": \"U+1F1E7 U+1F1F2\",\n            \"timezone\": \"Atlantic/Bermuda\"\n        },\n        {\n            \"name\": \"Brunei\",\n            \"isoCode\": \"BN\",\n            \"phoneCode\": \"673\",\n            \"emoji\": \"🇧🇳\",\n            \"emojiUnicode\": \"U+1F1E7 U+1F1F3\",\n            \"timezone\": \"Asia/Brunei\"\n        },\n        {\n            \"name\": \"Bolivia\",\n            \"isoCode\": \"BO\",\n            \"phoneCode\": \"591\",\n            \"emoji\": \"🇧🇴\",\n            \"emojiUnicode\": \"U+1F1E7 U+1F1F4\",\n            \"timezone\": \"America/La_Paz\"\n        },\n        {\n            \"name\": \"Bonaire\",\n            \"isoCode\": \"BQ\",\n            \"phoneCode\": \"5997\",\n            \"emoji\": \"🇧🇶\",\n            \"emojiUnicode\": \"U+1F1E7 U+1F1F6\",\n            \"timezone\": \"America/Kralendijk\"\n        },\n        {\n            \"name\": \"Brazil\",\n            \"isoCode\": \"BR\",\n            \"phoneCode\": \"55\",\n            \"emoji\": \"🇧🇷\",\n            \"emojiUnicode\": \"U+1F1E7 U+1F1F7\",\n            \"timezone\": \"America/Araguaina\"\n        },\n        {\n            \"name\": \"Bahamas\",\n            \"isoCode\": \"BS\",\n            \"phoneCode\": \"1242\",\n            \"emoji\": \"🇧🇸\",\n            \"emojiUnicode\": \"U+1F1E7 U+1F1F8\",\n            \"timezone\": \"America/Nassau\"\n        },\n        {\n            \"name\": \"Bhutan\",\n            \"isoCode\": \"BT\",\n            \"phoneCode\": \"975\",\n            \"emoji\": \"🇧🇹\",\n            \"emojiUnicode\": \"U+1F1E7 U+1F1F9\",\n            \"timezone\": \"Asia/Thimbu\"\n        },\n        {\n            \"name\": \"Bouvet Island\",\n            \"isoCode\": \"BV\",\n            \"phoneCode\": \"47\",\n            \"emoji\": \"🇧🇻\",\n            \"emojiUnicode\": \"U+1F1E7 U+1F1FB\",\n            \"timezone\": \"null\"\n        },\n        {\n            \"name\": \"Botswana\",\n            \"isoCode\": \"BW\",\n            \"phoneCode\": \"267\",\n            \"emoji\": \"🇧🇼\",\n            \"emojiUnicode\": \"U+1F1E7 U+1F1FC\",\n            \"timezone\": \"Africa/Gaborone\"\n        },\n        {\n            \"name\": \"Belarus\",\n            \"isoCode\": \"BY\",\n            \"phoneCode\": \"375\",\n            \"emoji\": \"🇧🇾\",\n            \"emojiUnicode\": \"U+1F1E7 U+1F1FE\",\n            \"timezone\": \"Europe/Minsk\"\n        },\n        {\n            \"name\": \"Belize\",\n            \"isoCode\": \"BZ\",\n            \"phoneCode\": \"501\",\n            \"emoji\": \"🇧🇿\",\n            \"emojiUnicode\": \"U+1F1E7 U+1F1FF\",\n            \"timezone\": \"America/Belize\"\n        },\n        {\n            \"name\": \"Canada\",\n            \"isoCode\": \"CA\",\n            \"phoneCode\": \"1\",\n            \"emoji\": \"🇨🇦\",\n            \"emojiUnicode\": \"U+1F1E8 U+1F1E6\",\n            \"timezone\": \"America/Atikokan\"\n        },\n        {\n            \"name\": \"Cocos [Keeling] Islands\",\n            \"isoCode\": \"CC\",\n            \"phoneCode\": \"61\",\n            \"emoji\": \"🇨🇨\",\n            \"emojiUnicode\": \"U+1F1E8 U+1F1E8\",\n            \"timezone\": \"Indian/Cocos\"\n        },\n        {\n            \"name\": \"Democratic Republic of the Congo\",\n            \"isoCode\": \"CD\",\n            \"phoneCode\": \"243\",\n            \"emoji\": \"🇨🇩\",\n            \"emojiUnicode\": \"U+1F1E8 U+1F1E9\",\n            \"timezone\": \"Africa/Kinshasa\"\n        },\n        {\n            \"name\": \"Central African Republic\",\n            \"isoCode\": \"CF\",\n            \"phoneCode\": \"236\",\n            \"emoji\": \"🇨🇫\",\n            \"emojiUnicode\": \"U+1F1E8 U+1F1EB\",\n            \"timezone\": \"Africa/Bangui\"\n        },\n        {\n            \"name\": \"Republic of the Congo\",\n            \"isoCode\": \"CG\",\n            \"phoneCode\": \"242\",\n            \"emoji\": \"🇨🇬\",\n            \"emojiUnicode\": \"U+1F1E8 U+1F1EC\",\n            \"timezone\": \"Africa/Brazzaville\"\n        },\n        {\n            \"name\": \"Switzerland\",\n            \"isoCode\": \"CH\",\n            \"phoneCode\": \"41\",\n            \"emoji\": \"🇨🇭\",\n            \"emojiUnicode\": \"U+1F1E8 U+1F1ED\",\n            \"timezone\": \"Europe/Zurich\"\n        },\n        {\n            \"name\": \"Ivory Coast\",\n            \"isoCode\": \"CI\",\n            \"phoneCode\": \"225\",\n            \"emoji\": \"🇨🇮\",\n            \"emojiUnicode\": \"U+1F1E8 U+1F1EE\",\n            \"timezone\": \"Africa/Abidjan\"\n        },\n        {\n            \"name\": \"Cook Islands\",\n            \"isoCode\": \"CK\",\n            \"phoneCode\": \"682\",\n            \"emoji\": \"🇨🇰\",\n            \"emojiUnicode\": \"U+1F1E8 U+1F1F0\",\n            \"timezone\": \"Pacific/Rarotonga\"\n        },\n        {\n            \"name\": \"Chile\",\n            \"isoCode\": \"CL\",\n            \"phoneCode\": \"56\",\n            \"emoji\": \"🇨🇱\",\n            \"emojiUnicode\": \"U+1F1E8 U+1F1F1\",\n            \"timezone\": \"America/Punta_Arenas\"\n        },\n        {\n            \"name\": \"Cameroon\",\n            \"isoCode\": \"CM\",\n            \"phoneCode\": \"237\",\n            \"emoji\": \"🇨🇲\",\n            \"emojiUnicode\": \"U+1F1E8 U+1F1F2\",\n            \"timezone\": \"Africa/Douala\"\n        },\n        {\n            \"name\": \"China\",\n            \"isoCode\": \"CN\",\n            \"phoneCode\": \"86\",\n            \"emoji\": \"🇨🇳\",\n            \"emojiUnicode\": \"U+1F1E8 U+1F1F3\",\n            \"timezone\": \"Asia/Chongqing\"\n        },\n        {\n            \"name\": \"Colombia\",\n            \"isoCode\": \"CO\",\n            \"phoneCode\": \"57\",\n            \"emoji\": \"🇨🇴\",\n            \"emojiUnicode\": \"U+1F1E8 U+1F1F4\",\n            \"timezone\": \"America/Bogota\"\n        },\n        {\n            \"name\": \"Costa Rica\",\n            \"isoCode\": \"CR\",\n            \"phoneCode\": \"506\",\n            \"emoji\": \"🇨🇷\",\n            \"emojiUnicode\": \"U+1F1E8 U+1F1F7\",\n            \"timezone\": \"America/Costa_Rica\"\n        },\n        {\n            \"name\": \"Cuba\",\n            \"isoCode\": \"CU\",\n            \"phoneCode\": \"53\",\n            \"emoji\": \"🇨🇺\",\n            \"emojiUnicode\": \"U+1F1E8 U+1F1FA\",\n            \"timezone\": \"America/Havana\"\n        },\n        {\n            \"name\": \"Cape Verde\",\n            \"isoCode\": \"CV\",\n            \"phoneCode\": \"238\",\n            \"emoji\": \"🇨🇻\",\n            \"emojiUnicode\": \"U+1F1E8 U+1F1FB\",\n            \"timezone\": \"Atlantic/Cape_Verde\"\n        },\n        {\n            \"name\": \"Curacao\",\n            \"isoCode\": \"CW\",\n            \"phoneCode\": \"5999\",\n            \"emoji\": \"🇨🇼\",\n            \"emojiUnicode\": \"U+1F1E8 U+1F1FC\",\n            \"timezone\": \"America/Curacao\"\n        },\n        {\n            \"name\": \"Christmas Island\",\n            \"isoCode\": \"CX\",\n            \"phoneCode\": \"61\",\n            \"emoji\": \"🇨🇽\",\n            \"emojiUnicode\": \"U+1F1E8 U+1F1FD\",\n            \"timezone\": \"Indian/Christmas\"\n        },\n        {\n            \"name\": \"Cyprus\",\n            \"isoCode\": \"CY\",\n            \"phoneCode\": \"357\",\n            \"emoji\": \"🇨🇾\",\n            \"emojiUnicode\": \"U+1F1E8 U+1F1FE\",\n            \"timezone\": \"Asia/Famagusta\"\n        },\n        {\n            \"name\": \"Czech Republic\",\n            \"isoCode\": \"CZ\",\n            \"phoneCode\": \"420\",\n            \"emoji\": \"🇨🇿\",\n            \"emojiUnicode\": \"U+1F1E8 U+1F1FF\",\n            \"timezone\": \"Europe/Prague\"\n        },\n        {\n            \"name\": \"Germany\",\n            \"isoCode\": \"DE\",\n            \"phoneCode\": \"49\",\n            \"emoji\": \"🇩🇪\",\n            \"emojiUnicode\": \"U+1F1E9 U+1F1EA\",\n            \"timezone\": \"Europe/Berlin\"\n        },\n        {\n            \"name\": \"Djibouti\",\n            \"isoCode\": \"DJ\",\n            \"phoneCode\": \"253\",\n            \"emoji\": \"🇩🇯\",\n            \"emojiUnicode\": \"U+1F1E9 U+1F1EF\",\n            \"timezone\": \"Africa/Djibouti\"\n        },\n        {\n            \"name\": \"Denmark\",\n            \"isoCode\": \"DK\",\n            \"phoneCode\": \"45\",\n            \"emoji\": \"🇩🇰\",\n            \"emojiUnicode\": \"U+1F1E9 U+1F1F0\",\n            \"timezone\": \"Europe/Copenhagen\"\n        },\n        {\n            \"name\": \"Dominica\",\n            \"isoCode\": \"DM\",\n            \"phoneCode\": \"1767\",\n            \"emoji\": \"🇩🇲\",\n            \"emojiUnicode\": \"U+1F1E9 U+1F1F2\",\n            \"timezone\": \"America/Dominica\"\n        },\n        {\n            \"name\": \"Dominican Republic\",\n            \"isoCode\": \"DO\",\n            \"phoneCode\": \"1809,1829,1849\",\n            \"emoji\": \"🇩🇴\",\n            \"emojiUnicode\": \"U+1F1E9 U+1F1F4\",\n            \"timezone\": \"America/Santo_Domingo\"\n        },\n        {\n            \"name\": \"Algeria\",\n            \"isoCode\": \"DZ\",\n            \"phoneCode\": \"213\",\n            \"emoji\": \"🇩🇿\",\n            \"emojiUnicode\": \"U+1F1E9 U+1F1FF\",\n            \"timezone\": \"Africa/Algiers\"\n        },\n        {\n            \"name\": \"Ecuador\",\n            \"isoCode\": \"EC\",\n            \"phoneCode\": \"593\",\n            \"emoji\": \"🇪🇨\",\n            \"emojiUnicode\": \"U+1F1EA U+1F1E8\",\n            \"timezone\": \"America/Guayaquil\"\n        },\n        {\n            \"name\": \"Estonia\",\n            \"isoCode\": \"EE\",\n            \"phoneCode\": \"372\",\n            \"emoji\": \"🇪🇪\",\n            \"emojiUnicode\": \"U+1F1EA U+1F1EA\",\n            \"timezone\": \"Europe/Tallinn\"\n        },\n        {\n            \"name\": \"Egypt\",\n            \"isoCode\": \"EG\",\n            \"phoneCode\": \"20\",\n            \"emoji\": \"🇪🇬\",\n            \"emojiUnicode\": \"U+1F1EA U+1F1EC\",\n            \"timezone\": \"Africa/Cairo\"\n        },\n        {\n            \"name\": \"Western Sahara\",\n            \"isoCode\": \"EH\",\n            \"phoneCode\": \"212\",\n            \"emoji\": \"🇪🇭\",\n            \"emojiUnicode\": \"U+1F1EA U+1F1ED\",\n            \"timezone\": \"Africa/El_Aaiun\"\n        },\n        {\n            \"name\": \"Eritrea\",\n            \"isoCode\": \"ER\",\n            \"phoneCode\": \"291\",\n            \"emoji\": \"🇪🇷\",\n            \"emojiUnicode\": \"U+1F1EA U+1F1F7\",\n            \"timezone\": \"Africa/Asmara\"\n        },\n        {\n            \"name\": \"Spain\",\n            \"isoCode\": \"ES\",\n            \"phoneCode\": \"34\",\n            \"emoji\": \"🇪🇸\",\n            \"emojiUnicode\": \"U+1F1EA U+1F1F8\",\n            \"timezone\": \"Africa/Ceuta\"\n        },\n        {\n            \"name\": \"Ethiopia\",\n            \"isoCode\": \"ET\",\n            \"phoneCode\": \"251\",\n            \"emoji\": \"🇪🇹\",\n            \"emojiUnicode\": \"U+1F1EA U+1F1F9\",\n            \"timezone\": \"Africa/Addis_Ababa\"\n        },\n        {\n            \"name\": \"Finland\",\n            \"isoCode\": \"FI\",\n            \"phoneCode\": \"358\",\n            \"emoji\": \"🇫🇮\",\n            \"emojiUnicode\": \"U+1F1EB U+1F1EE\",\n            \"timezone\": \"Europe/Helsinki\"\n        },\n        {\n            \"name\": \"Fiji\",\n            \"isoCode\": \"FJ\",\n            \"phoneCode\": \"679\",\n            \"emoji\": \"🇫🇯\",\n            \"emojiUnicode\": \"U+1F1EB U+1F1EF\",\n            \"timezone\": \"Pacific/Fiji\"\n        },\n        {\n            \"name\": \"Falkland Islands\",\n            \"isoCode\": \"FK\",\n            \"phoneCode\": \"500\",\n            \"emoji\": \"🇫🇰\",\n            \"emojiUnicode\": \"U+1F1EB U+1F1F0\",\n            \"timezone\": \"Atlantic/Stanley\"\n        },\n        {\n            \"name\": \"Micronesia\",\n            \"isoCode\": \"FM\",\n            \"phoneCode\": \"691\",\n            \"emoji\": \"🇫🇲\",\n            \"emojiUnicode\": \"U+1F1EB U+1F1F2\",\n            \"timezone\": \"Pacific/Chuuk\"\n        },\n        {\n            \"name\": \"Faroe Islands\",\n            \"isoCode\": \"FO\",\n            \"phoneCode\": \"298\",\n            \"emoji\": \"🇫🇴\",\n            \"emojiUnicode\": \"U+1F1EB U+1F1F4\",\n            \"timezone\": \"Atlantic/Faeroe\"\n        },\n        {\n            \"name\": \"France\",\n            \"isoCode\": \"FR\",\n            \"phoneCode\": \"33\",\n            \"emoji\": \"🇫🇷\",\n            \"emojiUnicode\": \"U+1F1EB U+1F1F7\",\n            \"timezone\": \"Europe/Paris\"\n        },\n        {\n            \"name\": \"Gabon\",\n            \"isoCode\": \"GA\",\n            \"phoneCode\": \"241\",\n            \"emoji\": \"🇬🇦\",\n            \"emojiUnicode\": \"U+1F1EC U+1F1E6\",\n            \"timezone\": \"Africa/Libreville\"\n        },\n        {\n            \"name\": \"United Kingdom\",\n            \"isoCode\": \"GB\",\n            \"phoneCode\": \"44\",\n            \"emoji\": \"🇬🇧\",\n            \"emojiUnicode\": \"U+1F1EC U+1F1E7\",\n            \"timezone\": \"Europe/Belfast\"\n        },\n        {\n            \"name\": \"Grenada\",\n            \"isoCode\": \"GD\",\n            \"phoneCode\": \"1473\",\n            \"emoji\": \"🇬🇩\",\n            \"emojiUnicode\": \"U+1F1EC U+1F1E9\",\n            \"timezone\": \"America/Grenada\"\n        },\n        {\n            \"name\": \"Georgia\",\n            \"isoCode\": \"GE\",\n            \"phoneCode\": \"995\",\n            \"emoji\": \"🇬🇪\",\n            \"emojiUnicode\": \"U+1F1EC U+1F1EA\",\n            \"timezone\": \"Asia/Tbilisi\"\n        },\n        {\n            \"name\": \"French Guiana\",\n            \"isoCode\": \"GF\",\n            \"phoneCode\": \"594\",\n            \"emoji\": \"🇬🇫\",\n            \"emojiUnicode\": \"U+1F1EC U+1F1EB\",\n            \"timezone\": \"America/Cayenne\"\n        },\n        {\n            \"name\": \"Guernsey\",\n            \"isoCode\": \"GG\",\n            \"phoneCode\": \"44\",\n            \"emoji\": \"🇬🇬\",\n            \"emojiUnicode\": \"U+1F1EC U+1F1EC\",\n            \"timezone\": \"Europe/Guernsey\"\n        },\n        {\n            \"name\": \"Ghana\",\n            \"isoCode\": \"GH\",\n            \"phoneCode\": \"233\",\n            \"emoji\": \"🇬🇭\",\n            \"emojiUnicode\": \"U+1F1EC U+1F1ED\",\n            \"timezone\": \"Africa/Accra\"\n        },\n        {\n            \"name\": \"Gibraltar\",\n            \"isoCode\": \"GI\",\n            \"phoneCode\": \"350\",\n            \"emoji\": \"🇬🇮\",\n            \"emojiUnicode\": \"U+1F1EC U+1F1EE\",\n            \"timezone\": \"Europe/Gibraltar\"\n        },\n        {\n            \"name\": \"Greenland\",\n            \"isoCode\": \"GL\",\n            \"phoneCode\": \"299\",\n            \"emoji\": \"🇬🇱\",\n            \"emojiUnicode\": \"U+1F1EC U+1F1F1\",\n            \"timezone\": \"America/Danmarkshavn\"\n        },\n        {\n            \"name\": \"Gambia\",\n            \"isoCode\": \"GM\",\n            \"phoneCode\": \"220\",\n            \"emoji\": \"🇬🇲\",\n            \"emojiUnicode\": \"U+1F1EC U+1F1F2\",\n            \"timezone\": \"Africa/Banjul\"\n        },\n        {\n            \"name\": \"Guinea\",\n            \"isoCode\": \"GN\",\n            \"phoneCode\": \"224\",\n            \"emoji\": \"🇬🇳\",\n            \"emojiUnicode\": \"U+1F1EC U+1F1F3\",\n            \"timezone\": \"Africa/Conakry\"\n        },\n        {\n            \"name\": \"Guadeloupe\",\n            \"isoCode\": \"GP\",\n            \"phoneCode\": \"590\",\n            \"emoji\": \"🇬🇵\",\n            \"emojiUnicode\": \"U+1F1EC U+1F1F5\",\n            \"timezone\": \"America/Guadeloupe\"\n        },\n        {\n            \"name\": \"Equatorial Guinea\",\n            \"isoCode\": \"GQ\",\n            \"phoneCode\": \"240\",\n            \"emoji\": \"🇬🇶\",\n            \"emojiUnicode\": \"U+1F1EC U+1F1F6\",\n            \"timezone\": \"Africa/Malabo\"\n        },\n        {\n            \"name\": \"Greece\",\n            \"isoCode\": \"GR\",\n            \"phoneCode\": \"30\",\n            \"emoji\": \"🇬🇷\",\n            \"emojiUnicode\": \"U+1F1EC U+1F1F7\",\n            \"timezone\": \"Europe/Athens\"\n        },\n        {\n            \"name\": \"South Georgia and the South Sandwich Islands\",\n            \"isoCode\": \"GS\",\n            \"phoneCode\": \"500\",\n            \"emoji\": \"🇬🇸\",\n            \"emojiUnicode\": \"U+1F1EC U+1F1F8\",\n            \"timezone\": \"Atlantic/South_Georgia\"\n        },\n        {\n            \"name\": \"Guatemala\",\n            \"isoCode\": \"GT\",\n            \"phoneCode\": \"502\",\n            \"emoji\": \"🇬🇹\",\n            \"emojiUnicode\": \"U+1F1EC U+1F1F9\",\n            \"timezone\": \"America/Guatemala\"\n        },\n        {\n            \"name\": \"Guam\",\n            \"isoCode\": \"GU\",\n            \"phoneCode\": \"1671\",\n            \"emoji\": \"🇬🇺\",\n            \"emojiUnicode\": \"U+1F1EC U+1F1FA\",\n            \"timezone\": \"Pacific/Guam\"\n        },\n        {\n            \"name\": \"Guinea-Bissau\",\n            \"isoCode\": \"GW\",\n            \"phoneCode\": \"245\",\n            \"emoji\": \"🇬🇼\",\n            \"emojiUnicode\": \"U+1F1EC U+1F1FC\",\n            \"timezone\": \"Africa/Bissau\"\n        },\n        {\n            \"name\": \"Guyana\",\n            \"isoCode\": \"GY\",\n            \"phoneCode\": \"592\",\n            \"emoji\": \"🇬🇾\",\n            \"emojiUnicode\": \"U+1F1EC U+1F1FE\",\n            \"timezone\": \"America/Guyana\"\n        },\n        {\n            \"name\": \"Hong Kong\",\n            \"isoCode\": \"HK\",\n            \"phoneCode\": \"852\",\n            \"emoji\": \"🇭🇰\",\n            \"emojiUnicode\": \"U+1F1ED U+1F1F0\",\n            \"timezone\": \"Asia/Hong_Kong\"\n        },\n        {\n            \"name\": \"Heard Island and McDonald Islands\",\n            \"isoCode\": \"HM\",\n            \"phoneCode\": \"61\",\n            \"emoji\": \"🇭🇲\",\n            \"emojiUnicode\": \"U+1F1ED U+1F1F2\",\n            \"timezone\": \"null\"\n        },\n        {\n            \"name\": \"Honduras\",\n            \"isoCode\": \"HN\",\n            \"phoneCode\": \"504\",\n            \"emoji\": \"🇭🇳\",\n            \"emojiUnicode\": \"U+1F1ED U+1F1F3\",\n            \"timezone\": \"America/Tegucigalpa\"\n        },\n        {\n            \"name\": \"Croatia\",\n            \"isoCode\": \"HR\",\n            \"phoneCode\": \"385\",\n            \"emoji\": \"🇭🇷\",\n            \"emojiUnicode\": \"U+1F1ED U+1F1F7\",\n            \"timezone\": \"Europe/Zagreb\"\n        },\n        {\n            \"name\": \"Haiti\",\n            \"isoCode\": \"HT\",\n            \"phoneCode\": \"509\",\n            \"emoji\": \"🇭🇹\",\n            \"emojiUnicode\": \"U+1F1ED U+1F1F9\",\n            \"timezone\": \"America/Port-au-Prince\"\n        },\n        {\n            \"name\": \"Hungary\",\n            \"isoCode\": \"HU\",\n            \"phoneCode\": \"36\",\n            \"emoji\": \"🇭🇺\",\n            \"emojiUnicode\": \"U+1F1ED U+1F1FA\",\n            \"timezone\": \"Europe/Budapest\"\n        },\n        {\n            \"name\": \"Indonesia\",\n            \"isoCode\": \"ID\",\n            \"phoneCode\": \"62\",\n            \"emoji\": \"🇮🇩\",\n            \"emojiUnicode\": \"U+1F1EE U+1F1E9\",\n            \"timezone\": \"Asia/Jakarta\"\n        },\n        {\n            \"name\": \"Ireland\",\n            \"isoCode\": \"IE\",\n            \"phoneCode\": \"353\",\n            \"emoji\": \"🇮🇪\",\n            \"emojiUnicode\": \"U+1F1EE U+1F1EA\",\n            \"timezone\": \"Europe/Dublin\"\n        },\n        {\n            \"name\": \"Israel\",\n            \"isoCode\": \"IL\",\n            \"phoneCode\": \"972\",\n            \"emoji\": \"🇮🇱\",\n            \"emojiUnicode\": \"U+1F1EE U+1F1F1\",\n            \"timezone\": \"Asia/Jerusalem\"\n        },\n        {\n            \"name\": \"Isle of Man\",\n            \"isoCode\": \"IM\",\n            \"phoneCode\": \"44\",\n            \"emoji\": \"🇮🇲\",\n            \"emojiUnicode\": \"U+1F1EE U+1F1F2\",\n            \"timezone\": \"Europe/Isle_of_Man\"\n        },\n        {\n            \"name\": \"India\",\n            \"isoCode\": \"IN\",\n            \"phoneCode\": \"91\",\n            \"emoji\": \"🇮🇳\",\n            \"emojiUnicode\": \"U+1F1EE U+1F1F3\",\n            \"timezone\": \"Asia/Calcutta\"\n        },\n        {\n            \"name\": \"British Indian Ocean Territory\",\n            \"isoCode\": \"IO\",\n            \"phoneCode\": \"246\",\n            \"emoji\": \"🇮🇴\",\n            \"emojiUnicode\": \"U+1F1EE U+1F1F4\",\n            \"timezone\": \"Indian/Chagos\"\n        },\n        {\n            \"name\": \"Iraq\",\n            \"isoCode\": \"IQ\",\n            \"phoneCode\": \"964\",\n            \"emoji\": \"🇮🇶\",\n            \"emojiUnicode\": \"U+1F1EE U+1F1F6\",\n            \"timezone\": \"Asia/Baghdad\"\n        },\n        {\n            \"name\": \"Iran\",\n            \"isoCode\": \"IR\",\n            \"phoneCode\": \"98\",\n            \"emoji\": \"🇮🇷\",\n            \"emojiUnicode\": \"U+1F1EE U+1F1F7\",\n            \"timezone\": \"Asia/Tehran\"\n        },\n        {\n            \"name\": \"Iceland\",\n            \"isoCode\": \"IS\",\n            \"phoneCode\": \"354\",\n            \"emoji\": \"🇮🇸\",\n            \"emojiUnicode\": \"U+1F1EE U+1F1F8\",\n            \"timezone\": \"Atlantic/Reykjavik\"\n        },\n        {\n            \"name\": \"Italy\",\n            \"isoCode\": \"IT\",\n            \"phoneCode\": \"39\",\n            \"emoji\": \"🇮🇹\",\n            \"emojiUnicode\": \"U+1F1EE U+1F1F9\",\n            \"timezone\": \"Europe/Rome\"\n        },\n        {\n            \"name\": \"Jersey\",\n            \"isoCode\": \"JE\",\n            \"phoneCode\": \"44\",\n            \"emoji\": \"🇯🇪\",\n            \"emojiUnicode\": \"U+1F1EF U+1F1EA\",\n            \"timezone\": \"Europe/Jersey\"\n        },\n        {\n            \"name\": \"Jamaica\",\n            \"isoCode\": \"JM\",\n            \"phoneCode\": \"1876\",\n            \"emoji\": \"🇯🇲\",\n            \"emojiUnicode\": \"U+1F1EF U+1F1F2\",\n            \"timezone\": \"America/Jamaica\"\n        },\n        {\n            \"name\": \"Jordan\",\n            \"isoCode\": \"JO\",\n            \"phoneCode\": \"962\",\n            \"emoji\": \"🇯🇴\",\n            \"emojiUnicode\": \"U+1F1EF U+1F1F4\",\n            \"timezone\": \"Asia/Amman\"\n        },\n        {\n            \"name\": \"Japan\",\n            \"isoCode\": \"JP\",\n            \"phoneCode\": \"81\",\n            \"emoji\": \"🇯🇵\",\n            \"emojiUnicode\": \"U+1F1EF U+1F1F5\",\n            \"timezone\": \"Asia/Tokyo\"\n        },\n        {\n            \"name\": \"Kenya\",\n            \"isoCode\": \"KE\",\n            \"phoneCode\": \"254\",\n            \"emoji\": \"🇰🇪\",\n            \"emojiUnicode\": \"U+1F1F0 U+1F1EA\",\n            \"timezone\": \"Africa/Nairobi\"\n        },\n        {\n            \"name\": \"Kyrgyzstan\",\n            \"isoCode\": \"KG\",\n            \"phoneCode\": \"996\",\n            \"emoji\": \"🇰🇬\",\n            \"emojiUnicode\": \"U+1F1F0 U+1F1EC\",\n            \"timezone\": \"Asia/Bishkek\"\n        },\n        {\n            \"name\": \"Cambodia\",\n            \"isoCode\": \"KH\",\n            \"phoneCode\": \"855\",\n            \"emoji\": \"🇰🇭\",\n            \"emojiUnicode\": \"U+1F1F0 U+1F1ED\",\n            \"timezone\": \"Asia/Phnom_Penh\"\n        },\n        {\n            \"name\": \"Kiribati\",\n            \"isoCode\": \"KI\",\n            \"phoneCode\": \"686\",\n            \"emoji\": \"🇰🇮\",\n            \"emojiUnicode\": \"U+1F1F0 U+1F1EE\",\n            \"timezone\": \"Pacific/Enderbury\"\n        },\n        {\n            \"name\": \"Comoros\",\n            \"isoCode\": \"KM\",\n            \"phoneCode\": \"269\",\n            \"emoji\": \"🇰🇲\",\n            \"emojiUnicode\": \"U+1F1F0 U+1F1F2\",\n            \"timezone\": \"Indian/Comoro\"\n        },\n        {\n            \"name\": \"Saint Kitts and Nevis\",\n            \"isoCode\": \"KN\",\n            \"phoneCode\": \"1869\",\n            \"emoji\": \"🇰🇳\",\n            \"emojiUnicode\": \"U+1F1F0 U+1F1F3\",\n            \"timezone\": \"America/St_Kitts\"\n        },\n        {\n            \"name\": \"North Korea\",\n            \"isoCode\": \"KP\",\n            \"phoneCode\": \"850\",\n            \"emoji\": \"🇰🇵\",\n            \"emojiUnicode\": \"U+1F1F0 U+1F1F5\",\n            \"timezone\": \"Asia/Pyongyang\"\n        },\n        {\n            \"name\": \"South Korea\",\n            \"isoCode\": \"KR\",\n            \"phoneCode\": \"82\",\n            \"emoji\": \"🇰🇷\",\n            \"emojiUnicode\": \"U+1F1F0 U+1F1F7\",\n            \"timezone\": \"Asia/Seoul\"\n        },\n        {\n            \"name\": \"Kuwait\",\n            \"isoCode\": \"KW\",\n            \"phoneCode\": \"965\",\n            \"emoji\": \"🇰🇼\",\n            \"emojiUnicode\": \"U+1F1F0 U+1F1FC\",\n            \"timezone\": \"Asia/Kuwait\"\n        },\n        {\n            \"name\": \"Cayman Islands\",\n            \"isoCode\": \"KY\",\n            \"phoneCode\": \"1345\",\n            \"emoji\": \"🇰🇾\",\n            \"emojiUnicode\": \"U+1F1F0 U+1F1FE\",\n            \"timezone\": \"America/Cayman\"\n        },\n        {\n            \"name\": \"Kazakhstan\",\n            \"isoCode\": \"KZ\",\n            \"phoneCode\": \"76,77\",\n            \"emoji\": \"🇰🇿\",\n            \"emojiUnicode\": \"U+1F1F0 U+1F1FF\",\n            \"timezone\": \"Asia/Almaty\"\n        },\n        {\n            \"name\": \"Laos\",\n            \"isoCode\": \"LA\",\n            \"phoneCode\": \"856\",\n            \"emoji\": \"🇱🇦\",\n            \"emojiUnicode\": \"U+1F1F1 U+1F1E6\",\n            \"timezone\": \"Asia/Vientiane\"\n        },\n        {\n            \"name\": \"Lebanon\",\n            \"isoCode\": \"LB\",\n            \"phoneCode\": \"961\",\n            \"emoji\": \"🇱🇧\",\n            \"emojiUnicode\": \"U+1F1F1 U+1F1E7\",\n            \"timezone\": \"Asia/Beirut\"\n        },\n        {\n            \"name\": \"Saint Lucia\",\n            \"isoCode\": \"LC\",\n            \"phoneCode\": \"1758\",\n            \"emoji\": \"🇱🇨\",\n            \"emojiUnicode\": \"U+1F1F1 U+1F1E8\",\n            \"timezone\": \"America/St_Lucia\"\n        },\n        {\n            \"name\": \"Liechtenstein\",\n            \"isoCode\": \"LI\",\n            \"phoneCode\": \"423\",\n            \"emoji\": \"🇱🇮\",\n            \"emojiUnicode\": \"U+1F1F1 U+1F1EE\",\n            \"timezone\": \"Europe/Vaduz\"\n        },\n        {\n            \"name\": \"Sri Lanka\",\n            \"isoCode\": \"LK\",\n            \"phoneCode\": \"94\",\n            \"emoji\": \"🇱🇰\",\n            \"emojiUnicode\": \"U+1F1F1 U+1F1F0\",\n            \"timezone\": \"Asia/Colombo\"\n        },\n        {\n            \"name\": \"Liberia\",\n            \"isoCode\": \"LR\",\n            \"phoneCode\": \"231\",\n            \"emoji\": \"🇱🇷\",\n            \"emojiUnicode\": \"U+1F1F1 U+1F1F7\",\n            \"timezone\": \"Africa/Monrovia\"\n        },\n        {\n            \"name\": \"Lesotho\",\n            \"isoCode\": \"LS\",\n            \"phoneCode\": \"266\",\n            \"emoji\": \"🇱🇸\",\n            \"emojiUnicode\": \"U+1F1F1 U+1F1F8\",\n            \"timezone\": \"Africa/Maseru\"\n        },\n        {\n            \"name\": \"Lithuania\",\n            \"isoCode\": \"LT\",\n            \"phoneCode\": \"370\",\n            \"emoji\": \"🇱🇹\",\n            \"emojiUnicode\": \"U+1F1F1 U+1F1F9\",\n            \"timezone\": \"Europe/Vilnius\"\n        },\n        {\n            \"name\": \"Luxembourg\",\n            \"isoCode\": \"LU\",\n            \"phoneCode\": \"352\",\n            \"emoji\": \"🇱🇺\",\n            \"emojiUnicode\": \"U+1F1F1 U+1F1FA\",\n            \"timezone\": \"Europe/Luxembourg\"\n        },\n        {\n            \"name\": \"Latvia\",\n            \"isoCode\": \"LV\",\n            \"phoneCode\": \"371\",\n            \"emoji\": \"🇱🇻\",\n            \"emojiUnicode\": \"U+1F1F1 U+1F1FB\",\n            \"timezone\": \"Europe/Riga\"\n        },\n        {\n            \"name\": \"Libya\",\n            \"isoCode\": \"LY\",\n            \"phoneCode\": \"218\",\n            \"emoji\": \"🇱🇾\",\n            \"emojiUnicode\": \"U+1F1F1 U+1F1FE\",\n            \"timezone\": \"Africa/Tripoli\"\n        },\n        {\n            \"name\": \"Morocco\",\n            \"isoCode\": \"MA\",\n            \"phoneCode\": \"212\",\n            \"emoji\": \"🇲🇦\",\n            \"emojiUnicode\": \"U+1F1F2 U+1F1E6\",\n            \"timezone\": \"Africa/Casablanca\"\n        },\n        {\n            \"name\": \"Monaco\",\n            \"isoCode\": \"MC\",\n            \"phoneCode\": \"377\",\n            \"emoji\": \"🇲🇨\",\n            \"emojiUnicode\": \"U+1F1F2 U+1F1E8\",\n            \"timezone\": \"Europe/Monaco\"\n        },\n        {\n            \"name\": \"Moldova\",\n            \"isoCode\": \"MD\",\n            \"phoneCode\": \"373\",\n            \"emoji\": \"🇲🇩\",\n            \"emojiUnicode\": \"U+1F1F2 U+1F1E9\",\n            \"timezone\": \"Europe/Chisinau\"\n        },\n        {\n            \"name\": \"Montenegro\",\n            \"isoCode\": \"ME\",\n            \"phoneCode\": \"382\",\n            \"emoji\": \"🇲🇪\",\n            \"emojiUnicode\": \"U+1F1F2 U+1F1EA\",\n            \"timezone\": \"Europe/Podgorica\"\n        },\n        {\n            \"name\": \"Saint Martin\",\n            \"isoCode\": \"MF\",\n            \"phoneCode\": \"590\",\n            \"emoji\": \"🇲🇫\",\n            \"emojiUnicode\": \"U+1F1F2 U+1F1EB\",\n            \"timezone\": \"America/Marigot\"\n        },\n        {\n            \"name\": \"Madagascar\",\n            \"isoCode\": \"MG\",\n            \"phoneCode\": \"261\",\n            \"emoji\": \"🇲🇬\",\n            \"emojiUnicode\": \"U+1F1F2 U+1F1EC\",\n            \"timezone\": \"Indian/Antananarivo\"\n        },\n        {\n            \"name\": \"Marshall Islands\",\n            \"isoCode\": \"MH\",\n            \"phoneCode\": \"692\",\n            \"emoji\": \"🇲🇭\",\n            \"emojiUnicode\": \"U+1F1F2 U+1F1ED\",\n            \"timezone\": \"Pacific/Kwajalein\"\n        },\n        {\n            \"name\": \"North Macedonia\",\n            \"isoCode\": \"MK\",\n            \"phoneCode\": \"389\",\n            \"emoji\": \"🇲🇰\",\n            \"emojiUnicode\": \"U+1F1F2 U+1F1F0\",\n            \"timezone\": \"Europe/Skopje\"\n        },\n        {\n            \"name\": \"Mali\",\n            \"isoCode\": \"ML\",\n            \"phoneCode\": \"223\",\n            \"emoji\": \"🇲🇱\",\n            \"emojiUnicode\": \"U+1F1F2 U+1F1F1\",\n            \"timezone\": \"Africa/Bamako\"\n        },\n        {\n            \"name\": \"Myanmar [Burma]\",\n            \"isoCode\": \"MM\",\n            \"phoneCode\": \"95\",\n            \"emoji\": \"🇲🇲\",\n            \"emojiUnicode\": \"U+1F1F2 U+1F1F2\",\n            \"timezone\": \"Asia/Rangoon\"\n        },\n        {\n            \"name\": \"Mongolia\",\n            \"isoCode\": \"MN\",\n            \"phoneCode\": \"976\",\n            \"emoji\": \"🇲🇳\",\n            \"emojiUnicode\": \"U+1F1F2 U+1F1F3\",\n            \"timezone\": \"Asia/Choibalsan\"\n        },\n        {\n            \"name\": \"Macao\",\n            \"isoCode\": \"MO\",\n            \"phoneCode\": \"853\",\n            \"emoji\": \"🇲🇴\",\n            \"emojiUnicode\": \"U+1F1F2 U+1F1F4\",\n            \"timezone\": \"Asia/Macao\"\n        },\n        {\n            \"name\": \"Northern Mariana Islands\",\n            \"isoCode\": \"MP\",\n            \"phoneCode\": \"1670\",\n            \"emoji\": \"🇲🇵\",\n            \"emojiUnicode\": \"U+1F1F2 U+1F1F5\",\n            \"timezone\": \"Pacific/Saipan\"\n        },\n        {\n            \"name\": \"Martinique\",\n            \"isoCode\": \"MQ\",\n            \"phoneCode\": \"596\",\n            \"emoji\": \"🇲🇶\",\n            \"emojiUnicode\": \"U+1F1F2 U+1F1F6\",\n            \"timezone\": \"America/Martinique\"\n        },\n        {\n            \"name\": \"Mauritania\",\n            \"isoCode\": \"MR\",\n            \"phoneCode\": \"222\",\n            \"emoji\": \"🇲🇷\",\n            \"emojiUnicode\": \"U+1F1F2 U+1F1F7\",\n            \"timezone\": \"Africa/Nouakchott\"\n        },\n        {\n            \"name\": \"Montserrat\",\n            \"isoCode\": \"MS\",\n            \"phoneCode\": \"1664\",\n            \"emoji\": \"🇲🇸\",\n            \"emojiUnicode\": \"U+1F1F2 U+1F1F8\",\n            \"timezone\": \"America/Montserrat\"\n        },\n        {\n            \"name\": \"Malta\",\n            \"isoCode\": \"MT\",\n            \"phoneCode\": \"356\",\n            \"emoji\": \"🇲🇹\",\n            \"emojiUnicode\": \"U+1F1F2 U+1F1F9\",\n            \"timezone\": \"Europe/Malta\"\n        },\n        {\n            \"name\": \"Mauritius\",\n            \"isoCode\": \"MU\",\n            \"phoneCode\": \"230\",\n            \"emoji\": \"🇲🇺\",\n            \"emojiUnicode\": \"U+1F1F2 U+1F1FA\",\n            \"timezone\": \"Indian/Mauritius\"\n        },\n        {\n            \"name\": \"Maldives\",\n            \"isoCode\": \"MV\",\n            \"phoneCode\": \"960\",\n            \"emoji\": \"🇲🇻\",\n            \"emojiUnicode\": \"U+1F1F2 U+1F1FB\",\n            \"timezone\": \"Indian/Maldives\"\n        },\n        {\n            \"name\": \"Malawi\",\n            \"isoCode\": \"MW\",\n            \"phoneCode\": \"265\",\n            \"emoji\": \"🇲🇼\",\n            \"emojiUnicode\": \"U+1F1F2 U+1F1FC\",\n            \"timezone\": \"Africa/Blantyre\"\n        },\n        {\n            \"name\": \"Mexico\",\n            \"isoCode\": \"MX\",\n            \"phoneCode\": \"52\",\n            \"emoji\": \"🇲🇽\",\n            \"emojiUnicode\": \"U+1F1F2 U+1F1FD\",\n            \"timezone\": \"America/Bahia_Banderas\"\n        },\n        {\n            \"name\": \"Malaysia\",\n            \"isoCode\": \"MY\",\n            \"phoneCode\": \"60\",\n            \"emoji\": \"🇲🇾\",\n            \"emojiUnicode\": \"U+1F1F2 U+1F1FE\",\n            \"timezone\": \"Asia/Kuala_Lumpur\"\n        },\n        {\n            \"name\": \"Mozambique\",\n            \"isoCode\": \"MZ\",\n            \"phoneCode\": \"258\",\n            \"emoji\": \"🇲🇿\",\n            \"emojiUnicode\": \"U+1F1F2 U+1F1FF\",\n            \"timezone\": \"Africa/Maputo\"\n        },\n        {\n            \"name\": \"Namibia\",\n            \"isoCode\": \"NA\",\n            \"phoneCode\": \"264\",\n            \"emoji\": \"🇳🇦\",\n            \"emojiUnicode\": \"U+1F1F3 U+1F1E6\",\n            \"timezone\": \"Africa/Windhoek\"\n        },\n        {\n            \"name\": \"New Caledonia\",\n            \"isoCode\": \"NC\",\n            \"phoneCode\": \"687\",\n            \"emoji\": \"🇳🇨\",\n            \"emojiUnicode\": \"U+1F1F3 U+1F1E8\",\n            \"timezone\": \"Pacific/Noumea\"\n        },\n        {\n            \"name\": \"Niger\",\n            \"isoCode\": \"NE\",\n            \"phoneCode\": \"227\",\n            \"emoji\": \"🇳🇪\",\n            \"emojiUnicode\": \"U+1F1F3 U+1F1EA\",\n            \"timezone\": \"Africa/Niamey\"\n        },\n        {\n            \"name\": \"Norfolk Island\",\n            \"isoCode\": \"NF\",\n            \"phoneCode\": \"672\",\n            \"emoji\": \"🇳🇫\",\n            \"emojiUnicode\": \"U+1F1F3 U+1F1EB\",\n            \"timezone\": \"Pacific/Norfolk\"\n        },\n        {\n            \"name\": \"Nigeria\",\n            \"isoCode\": \"NG\",\n            \"phoneCode\": \"234\",\n            \"emoji\": \"🇳🇬\",\n            \"emojiUnicode\": \"U+1F1F3 U+1F1EC\",\n            \"timezone\": \"Africa/Lagos\"\n        },\n        {\n            \"name\": \"Nicaragua\",\n            \"isoCode\": \"NI\",\n            \"phoneCode\": \"505\",\n            \"emoji\": \"🇳🇮\",\n            \"emojiUnicode\": \"U+1F1F3 U+1F1EE\",\n            \"timezone\": \"America/Managua\"\n        },\n        {\n            \"name\": \"Netherlands\",\n            \"isoCode\": \"NL\",\n            \"phoneCode\": \"31\",\n            \"emoji\": \"🇳🇱\",\n            \"emojiUnicode\": \"U+1F1F3 U+1F1F1\",\n            \"timezone\": \"Europe/Amsterdam\"\n        },\n        {\n            \"name\": \"Norway\",\n            \"isoCode\": \"NO\",\n            \"phoneCode\": \"47\",\n            \"emoji\": \"🇳🇴\",\n            \"emojiUnicode\": \"U+1F1F3 U+1F1F4\",\n            \"timezone\": \"Atlantic/Jan_Mayen\"\n        },\n        {\n            \"name\": \"Nepal\",\n            \"isoCode\": \"NP\",\n            \"phoneCode\": \"977\",\n            \"emoji\": \"🇳🇵\",\n            \"emojiUnicode\": \"U+1F1F3 U+1F1F5\",\n            \"timezone\": \"Asia/Kathmandu\"\n        },\n        {\n            \"name\": \"Nauru\",\n            \"isoCode\": \"NR\",\n            \"phoneCode\": \"674\",\n            \"emoji\": \"🇳🇷\",\n            \"emojiUnicode\": \"U+1F1F3 U+1F1F7\",\n            \"timezone\": \"Pacific/Nauru\"\n        },\n        {\n            \"name\": \"Niue\",\n            \"isoCode\": \"NU\",\n            \"phoneCode\": \"683\",\n            \"emoji\": \"🇳🇺\",\n            \"emojiUnicode\": \"U+1F1F3 U+1F1FA\",\n            \"timezone\": \"Pacific/Niue\"\n        },\n        {\n            \"name\": \"New Zealand\",\n            \"isoCode\": \"NZ\",\n            \"phoneCode\": \"64\",\n            \"emoji\": \"🇳🇿\",\n            \"emojiUnicode\": \"U+1F1F3 U+1F1FF\",\n            \"timezone\": \"Antarctica/South_Pole\"\n        },\n        {\n            \"name\": \"Oman\",\n            \"isoCode\": \"OM\",\n            \"phoneCode\": \"968\",\n            \"emoji\": \"🇴🇲\",\n            \"emojiUnicode\": \"U+1F1F4 U+1F1F2\",\n            \"timezone\": \"Asia/Muscat\"\n        },\n        {\n            \"name\": \"Panama\",\n            \"isoCode\": \"PA\",\n            \"phoneCode\": \"507\",\n            \"emoji\": \"🇵🇦\",\n            \"emojiUnicode\": \"U+1F1F5 U+1F1E6\",\n            \"timezone\": \"America/Panama\"\n        },\n        {\n            \"name\": \"Peru\",\n            \"isoCode\": \"PE\",\n            \"phoneCode\": \"51\",\n            \"emoji\": \"🇵🇪\",\n            \"emojiUnicode\": \"U+1F1F5 U+1F1EA\",\n            \"timezone\": \"America/Lima\"\n        },\n        {\n            \"name\": \"French Polynesia\",\n            \"isoCode\": \"PF\",\n            \"phoneCode\": \"689\",\n            \"emoji\": \"🇵🇫\",\n            \"emojiUnicode\": \"U+1F1F5 U+1F1EB\",\n            \"timezone\": \"Pacific/Gambier\"\n        },\n        {\n            \"name\": \"Papua New Guinea\",\n            \"isoCode\": \"PG\",\n            \"phoneCode\": \"675\",\n            \"emoji\": \"🇵🇬\",\n            \"emojiUnicode\": \"U+1F1F5 U+1F1EC\",\n            \"timezone\": \"Pacific/Bougainville\"\n        },\n        {\n            \"name\": \"Philippines\",\n            \"isoCode\": \"PH\",\n            \"phoneCode\": \"63\",\n            \"emoji\": \"🇵🇭\",\n            \"emojiUnicode\": \"U+1F1F5 U+1F1ED\",\n            \"timezone\": \"Asia/Manila\"\n        },\n        {\n            \"name\": \"Pakistan\",\n            \"isoCode\": \"PK\",\n            \"phoneCode\": \"92\",\n            \"emoji\": \"🇵🇰\",\n            \"emojiUnicode\": \"U+1F1F5 U+1F1F0\",\n            \"timezone\": \"Asia/Karachi\"\n        },\n        {\n            \"name\": \"Poland\",\n            \"isoCode\": \"PL\",\n            \"phoneCode\": \"48\",\n            \"emoji\": \"🇵🇱\",\n            \"emojiUnicode\": \"U+1F1F5 U+1F1F1\",\n            \"timezone\": \"Europe/Warsaw\"\n        },\n        {\n            \"name\": \"Saint Pierre and Miquelon\",\n            \"isoCode\": \"PM\",\n            \"phoneCode\": \"508\",\n            \"emoji\": \"🇵🇲\",\n            \"emojiUnicode\": \"U+1F1F5 U+1F1F2\",\n            \"timezone\": \"America/Miquelon\"\n        },\n        {\n            \"name\": \"Pitcairn Islands\",\n            \"isoCode\": \"PN\",\n            \"phoneCode\": \"64\",\n            \"emoji\": \"🇵🇳\",\n            \"emojiUnicode\": \"U+1F1F5 U+1F1F3\",\n            \"timezone\": \"Pacific/Pitcairn\"\n        },\n        {\n            \"name\": \"Puerto Rico\",\n            \"isoCode\": \"PR\",\n            \"phoneCode\": \"1787,1939\",\n            \"emoji\": \"🇵🇷\",\n            \"emojiUnicode\": \"U+1F1F5 U+1F1F7\",\n            \"timezone\": \"America/Puerto_Rico\"\n        },\n        {\n            \"name\": \"Palestine\",\n            \"isoCode\": \"PS\",\n            \"phoneCode\": \"970\",\n            \"emoji\": \"🇵🇸\",\n            \"emojiUnicode\": \"U+1F1F5 U+1F1F8\",\n            \"timezone\": \"Asia/Gaza\"\n        },\n        {\n            \"name\": \"Portugal\",\n            \"isoCode\": \"PT\",\n            \"phoneCode\": \"351\",\n            \"emoji\": \"🇵🇹\",\n            \"emojiUnicode\": \"U+1F1F5 U+1F1F9\",\n            \"timezone\": \"Atlantic/Azores\"\n        },\n        {\n            \"name\": \"Palau\",\n            \"isoCode\": \"PW\",\n            \"phoneCode\": \"680\",\n            \"emoji\": \"🇵🇼\",\n            \"emojiUnicode\": \"U+1F1F5 U+1F1FC\",\n            \"timezone\": \"Pacific/Palau\"\n        },\n        {\n            \"name\": \"Paraguay\",\n            \"isoCode\": \"PY\",\n            \"phoneCode\": \"595\",\n            \"emoji\": \"🇵🇾\",\n            \"emojiUnicode\": \"U+1F1F5 U+1F1FE\",\n            \"timezone\": \"America/Asuncion\"\n        },\n        {\n            \"name\": \"Qatar\",\n            \"isoCode\": \"QA\",\n            \"phoneCode\": \"974\",\n            \"emoji\": \"🇶🇦\",\n            \"emojiUnicode\": \"U+1F1F6 U+1F1E6\",\n            \"timezone\": \"Asia/Qatar\"\n        },\n        {\n            \"name\": \"Réunion\",\n            \"isoCode\": \"RE\",\n            \"phoneCode\": \"262\",\n            \"emoji\": \"🇷🇪\",\n            \"emojiUnicode\": \"U+1F1F7 U+1F1EA\",\n            \"timezone\": \"Indian/Reunion\"\n        },\n        {\n            \"name\": \"Romania\",\n            \"isoCode\": \"RO\",\n            \"phoneCode\": \"40\",\n            \"emoji\": \"🇷🇴\",\n            \"emojiUnicode\": \"U+1F1F7 U+1F1F4\",\n            \"timezone\": \"Europe/Bucharest\"\n        },\n        {\n            \"name\": \"Serbia\",\n            \"isoCode\": \"RS\",\n            \"phoneCode\": \"381\",\n            \"emoji\": \"🇷🇸\",\n            \"emojiUnicode\": \"U+1F1F7 U+1F1F8\",\n            \"timezone\": \"Europe/Belgrade\"\n        },\n        {\n            \"name\": \"Russia\",\n            \"isoCode\": \"RU\",\n            \"phoneCode\": \"7\",\n            \"emoji\": \"🇷🇺\",\n            \"emojiUnicode\": \"U+1F1F7 U+1F1FA\",\n            \"timezone\": \"Asia/Anadyr\"\n        },\n        {\n            \"name\": \"Rwanda\",\n            \"isoCode\": \"RW\",\n            \"phoneCode\": \"250\",\n            \"emoji\": \"🇷🇼\",\n            \"emojiUnicode\": \"U+1F1F7 U+1F1FC\",\n            \"timezone\": \"Africa/Kigali\"\n        },\n        {\n            \"name\": \"Saudi Arabia\",\n            \"isoCode\": \"SA\",\n            \"phoneCode\": \"966\",\n            \"emoji\": \"🇸🇦\",\n            \"emojiUnicode\": \"U+1F1F8 U+1F1E6\",\n            \"timezone\": \"Asia/Riyadh\"\n        },\n        {\n            \"name\": \"Solomon Islands\",\n            \"isoCode\": \"SB\",\n            \"phoneCode\": \"677\",\n            \"emoji\": \"🇸🇧\",\n            \"emojiUnicode\": \"U+1F1F8 U+1F1E7\",\n            \"timezone\": \"Pacific/Guadalcanal\"\n        },\n        {\n            \"name\": \"Seychelles\",\n            \"isoCode\": \"SC\",\n            \"phoneCode\": \"248\",\n            \"emoji\": \"🇸🇨\",\n            \"emojiUnicode\": \"U+1F1F8 U+1F1E8\",\n            \"timezone\": \"Indian/Mahe\"\n        },\n        {\n            \"name\": \"Sudan\",\n            \"isoCode\": \"SD\",\n            \"phoneCode\": \"249\",\n            \"emoji\": \"🇸🇩\",\n            \"emojiUnicode\": \"U+1F1F8 U+1F1E9\",\n            \"timezone\": \"Africa/Khartoum\"\n        },\n        {\n            \"name\": \"Sweden\",\n            \"isoCode\": \"SE\",\n            \"phoneCode\": \"46\",\n            \"emoji\": \"🇸🇪\",\n            \"emojiUnicode\": \"U+1F1F8 U+1F1EA\",\n            \"timezone\": \"Europe/Stockholm\"\n        },\n        {\n            \"name\": \"Singapore\",\n            \"isoCode\": \"SG\",\n            \"phoneCode\": \"65\",\n            \"emoji\": \"🇸🇬\",\n            \"emojiUnicode\": \"U+1F1F8 U+1F1EC\",\n            \"timezone\": \"Asia/Singapore\"\n        },\n        {\n            \"name\": \"Saint Helena\",\n            \"isoCode\": \"SH\",\n            \"phoneCode\": \"290\",\n            \"emoji\": \"🇸🇭\",\n            \"emojiUnicode\": \"U+1F1F8 U+1F1ED\",\n            \"timezone\": \"Atlantic/St_Helena\"\n        },\n        {\n            \"name\": \"Slovenia\",\n            \"isoCode\": \"SI\",\n            \"phoneCode\": \"386\",\n            \"emoji\": \"🇸🇮\",\n            \"emojiUnicode\": \"U+1F1F8 U+1F1EE\",\n            \"timezone\": \"Europe/Ljubljana\"\n        },\n        {\n            \"name\": \"Svalbard and Jan Mayen\",\n            \"isoCode\": \"SJ\",\n            \"phoneCode\": \"4779\",\n            \"emoji\": \"🇸🇯\",\n            \"emojiUnicode\": \"U+1F1F8 U+1F1EF\",\n            \"timezone\": \"Arctic/Longyearbyen\"\n        },\n        {\n            \"name\": \"Slovakia\",\n            \"isoCode\": \"SK\",\n            \"phoneCode\": \"421\",\n            \"emoji\": \"🇸🇰\",\n            \"emojiUnicode\": \"U+1F1F8 U+1F1F0\",\n            \"timezone\": \"Europe/Bratislava\"\n        },\n        {\n            \"name\": \"Sierra Leone\",\n            \"isoCode\": \"SL\",\n            \"phoneCode\": \"232\",\n            \"emoji\": \"🇸🇱\",\n            \"emojiUnicode\": \"U+1F1F8 U+1F1F1\",\n            \"timezone\": \"Africa/Freetown\"\n        },\n        {\n            \"name\": \"San Marino\",\n            \"isoCode\": \"SM\",\n            \"phoneCode\": \"378\",\n            \"emoji\": \"🇸🇲\",\n            \"emojiUnicode\": \"U+1F1F8 U+1F1F2\",\n            \"timezone\": \"Europe/San_Marino\"\n        },\n        {\n            \"name\": \"Senegal\",\n            \"isoCode\": \"SN\",\n            \"phoneCode\": \"221\",\n            \"emoji\": \"🇸🇳\",\n            \"emojiUnicode\": \"U+1F1F8 U+1F1F3\",\n            \"timezone\": \"Africa/Dakar\"\n        },\n        {\n            \"name\": \"Somalia\",\n            \"isoCode\": \"SO\",\n            \"phoneCode\": \"252\",\n            \"emoji\": \"🇸🇴\",\n            \"emojiUnicode\": \"U+1F1F8 U+1F1F4\",\n            \"timezone\": \"Africa/Mogadishu\"\n        },\n        {\n            \"name\": \"Suriname_en\",\n            \"isoCode\": \"SR\",\n            \"phoneCode\": \"597\",\n            \"emoji\": \"🇸🇷\",\n            \"emojiUnicode\": \"U+1F1F8 U+1F1F7\",\n            \"timezone\": \"America/Paramaribo\"\n        },\n        {\n            \"name\": \"South Sudan\",\n            \"isoCode\": \"SS\",\n            \"phoneCode\": \"211\",\n            \"emoji\": \"🇸🇸\",\n            \"emojiUnicode\": \"U+1F1F8 U+1F1F8\",\n            \"timezone\": \"Africa/Juba\"\n        },\n        {\n            \"name\": \"São Tomé and Príncipe\",\n            \"isoCode\": \"ST\",\n            \"phoneCode\": \"239\",\n            \"emoji\": \"🇸🇹\",\n            \"emojiUnicode\": \"U+1F1F8 U+1F1F9\",\n            \"timezone\": \"Africa/Sao_Tome\"\n        },\n        {\n            \"name\": \"El Salvador\",\n            \"isoCode\": \"SV\",\n            \"phoneCode\": \"503\",\n            \"emoji\": \"🇸🇻\",\n            \"emojiUnicode\": \"U+1F1F8 U+1F1FB\",\n            \"timezone\": \"America/El_Salvador\"\n        },\n        {\n            \"name\": \"Sint Maarten\",\n            \"isoCode\": \"SX\",\n            \"phoneCode\": \"1721\",\n            \"emoji\": \"🇸🇽\",\n            \"emojiUnicode\": \"U+1F1F8 U+1F1FD\",\n            \"timezone\": \"America/Lower_Princes\"\n        },\n        {\n            \"name\": \"Syria\",\n            \"isoCode\": \"SY\",\n            \"phoneCode\": \"963\",\n            \"emoji\": \"🇸🇾\",\n            \"emojiUnicode\": \"U+1F1F8 U+1F1FE\",\n            \"timezone\": \"Asia/Damascus\"\n        },\n        {\n            \"name\": \"Swaziland\",\n            \"isoCode\": \"SZ\",\n            \"phoneCode\": \"268\",\n            \"emoji\": \"🇸🇿\",\n            \"emojiUnicode\": \"U+1F1F8 U+1F1FF\",\n            \"timezone\": \"Africa/Mbabane\"\n        },\n        {\n            \"name\": \"Turks and Caicos Islands\",\n            \"isoCode\": \"TC\",\n            \"phoneCode\": \"1649\",\n            \"emoji\": \"🇹🇨\",\n            \"emojiUnicode\": \"U+1F1F9 U+1F1E8\",\n            \"timezone\": \"America/Grand_Turk\"\n        },\n        {\n            \"name\": \"Chad\",\n            \"isoCode\": \"TD\",\n            \"phoneCode\": \"235\",\n            \"emoji\": \"🇹🇩\",\n            \"emojiUnicode\": \"U+1F1F9 U+1F1E9\",\n            \"timezone\": \"Africa/Ndjamena\"\n        },\n        {\n            \"name\": \"French Southern Territories\",\n            \"isoCode\": \"TF\",\n            \"phoneCode\": \"262\",\n            \"emoji\": \"🇹🇫\",\n            \"emojiUnicode\": \"U+1F1F9 U+1F1EB\",\n            \"timezone\": \"Indian/Kerguelen\"\n        },\n        {\n            \"name\": \"Togo\",\n            \"isoCode\": \"TG\",\n            \"phoneCode\": \"228\",\n            \"emoji\": \"🇹🇬\",\n            \"emojiUnicode\": \"U+1F1F9 U+1F1EC\",\n            \"timezone\": \"Africa/Lome\"\n        },\n        {\n            \"name\": \"Thailand\",\n            \"isoCode\": \"TH\",\n            \"phoneCode\": \"66\",\n            \"emoji\": \"🇹🇭\",\n            \"emojiUnicode\": \"U+1F1F9 U+1F1ED\",\n            \"timezone\": \"Asia/Bangkok\"\n        },\n        {\n            \"name\": \"Tajikistan\",\n            \"isoCode\": \"TJ\",\n            \"phoneCode\": \"992\",\n            \"emoji\": \"🇹🇯\",\n            \"emojiUnicode\": \"U+1F1F9 U+1F1EF\",\n            \"timezone\": \"Asia/Dushanbe\"\n        },\n        {\n            \"name\": \"Tokelau\",\n            \"isoCode\": \"TK\",\n            \"phoneCode\": \"690\",\n            \"emoji\": \"🇹🇰\",\n            \"emojiUnicode\": \"U+1F1F9 U+1F1F0\",\n            \"timezone\": \"Pacific/Fakaofo\"\n        },\n        {\n            \"name\": \"East Timor\",\n            \"isoCode\": \"TL\",\n            \"phoneCode\": \"670\",\n            \"emoji\": \"🇹🇱\",\n            \"emojiUnicode\": \"U+1F1F9 U+1F1F1\",\n            \"timezone\": \"Asia/Dili\"\n        },\n        {\n            \"name\": \"Turkmenistan\",\n            \"isoCode\": \"TM\",\n            \"phoneCode\": \"993\",\n            \"emoji\": \"🇹🇲\",\n            \"emojiUnicode\": \"U+1F1F9 U+1F1F2\",\n            \"timezone\": \"Asia/Ashgabat\"\n        },\n        {\n            \"name\": \"Tunisia\",\n            \"isoCode\": \"TN\",\n            \"phoneCode\": \"216\",\n            \"emoji\": \"🇹🇳\",\n            \"emojiUnicode\": \"U+1F1F9 U+1F1F3\",\n            \"timezone\": \"Africa/Tunis\"\n        },\n        {\n            \"name\": \"Tonga\",\n            \"isoCode\": \"TO\",\n            \"phoneCode\": \"676\",\n            \"emoji\": \"🇹🇴\",\n            \"emojiUnicode\": \"U+1F1F9 U+1F1F4\",\n            \"timezone\": \"Pacific/Tongatapu\"\n        },\n        {\n            \"name\": \"Turkey\",\n            \"isoCode\": \"TR\",\n            \"phoneCode\": \"90\",\n            \"emoji\": \"🇹🇷\",\n            \"emojiUnicode\": \"U+1F1F9 U+1F1F7\",\n            \"timezone\": \"Asia/Istanbul\"\n        },\n        {\n            \"name\": \"Trinidad and Tobago\",\n            \"isoCode\": \"TT\",\n            \"phoneCode\": \"1868\",\n            \"emoji\": \"🇹🇹\",\n            \"emojiUnicode\": \"U+1F1F9 U+1F1F9\",\n            \"timezone\": \"America/Port_of_Spain\"\n        },\n        {\n            \"name\": \"Tuvalu\",\n            \"isoCode\": \"TV\",\n            \"phoneCode\": \"688\",\n            \"emoji\": \"🇹🇻\",\n            \"emojiUnicode\": \"U+1F1F9 U+1F1FB\",\n            \"timezone\": \"Pacific/Funafuti\"\n        },\n        {\n            \"name\": \"Taiwan\",\n            \"isoCode\": \"TW\",\n            \"phoneCode\": \"886\",\n            \"emoji\": \"🇹🇼\",\n            \"emojiUnicode\": \"U+1F1F9 U+1F1FC\",\n            \"timezone\": \"Asia/Taipei\"\n        },\n        {\n            \"name\": \"Tanzania\",\n            \"isoCode\": \"TZ\",\n            \"phoneCode\": \"255\",\n            \"emoji\": \"🇹🇿\",\n            \"emojiUnicode\": \"U+1F1F9 U+1F1FF\",\n            \"timezone\": \"Africa/Dar_es_Salaam\"\n        },\n        {\n            \"name\": \"Ukraine\",\n            \"isoCode\": \"UA\",\n            \"phoneCode\": \"380\",\n            \"emoji\": \"🇺🇦\",\n            \"emojiUnicode\": \"U+1F1FA U+1F1E6\",\n            \"timezone\": \"Europe/Kiev\"\n        },\n        {\n            \"name\": \"Uganda\",\n            \"isoCode\": \"UG\",\n            \"phoneCode\": \"256\",\n            \"emoji\": \"🇺🇬\",\n            \"emojiUnicode\": \"U+1F1FA U+1F1EC\",\n            \"timezone\": \"Africa/Kampala\"\n        },\n        {\n            \"name\": \"U.S. Minor Outlying Islands\",\n            \"isoCode\": \"UM\",\n            \"phoneCode\": \"1\",\n            \"emoji\": \"🇺🇲\",\n            \"emojiUnicode\": \"U+1F1FA U+1F1F2\",\n            \"timezone\": \"Pacific/Midway\"\n        },\n        {\n            \"name\": \"United States\",\n            \"isoCode\": \"US\",\n            \"phoneCode\": \"1\",\n            \"emoji\": \"🇺🇸\",\n            \"emojiUnicode\": \"U+1F1FA U+1F1F8\",\n            \"timezone\": \"America/Adak\"\n        },\n        {\n            \"name\": \"Uruguay\",\n            \"isoCode\": \"UY\",\n            \"phoneCode\": \"598\",\n            \"emoji\": \"🇺🇾\",\n            \"emojiUnicode\": \"U+1F1FA U+1F1FE\",\n            \"timezone\": \"America/Montevideo\"\n        },\n        {\n            \"name\": \"Uzbekistan\",\n            \"isoCode\": \"UZ\",\n            \"phoneCode\": \"998\",\n            \"emoji\": \"🇺🇿\",\n            \"emojiUnicode\": \"U+1F1FA U+1F1FF\",\n            \"timezone\": \"Asia/Samarkand\"\n        },\n        {\n            \"name\": \"Vatican City\",\n            \"isoCode\": \"VA\",\n            \"phoneCode\": \"39066,379\",\n            \"emoji\": \"🇻🇦\",\n            \"emojiUnicode\": \"U+1F1FB U+1F1E6\",\n            \"timezone\": \"Europe/Vatican\"\n        },\n        {\n            \"name\": \"Saint Vincent and the Grenadines\",\n            \"isoCode\": \"VC\",\n            \"phoneCode\": \"1784\",\n            \"emoji\": \"🇻🇨\",\n            \"emojiUnicode\": \"U+1F1FB U+1F1E8\",\n            \"timezone\": \"America/St_Vincent\"\n        },\n        {\n            \"name\": \"Venezuela\",\n            \"isoCode\": \"VE\",\n            \"phoneCode\": \"58\",\n            \"emoji\": \"🇻🇪\",\n            \"emojiUnicode\": \"U+1F1FB U+1F1EA\",\n            \"timezone\": \"America/Caracas\"\n        },\n        {\n            \"name\": \"British Virgin Islands\",\n            \"isoCode\": \"VG\",\n            \"phoneCode\": \"1284\",\n            \"emoji\": \"🇻🇬\",\n            \"emojiUnicode\": \"U+1F1FB U+1F1EC\",\n            \"timezone\": \"America/Tortola\"\n        },\n        {\n            \"name\": \"U.S. Virgin Islands\",\n            \"isoCode\": \"VI\",\n            \"phoneCode\": \"1340\",\n            \"emoji\": \"🇻🇮\",\n            \"emojiUnicode\": \"U+1F1FB U+1F1EE\",\n            \"timezone\": \"America/St_Thomas\"\n        },\n        {\n            \"name\": \"Vietnam\",\n            \"isoCode\": \"VN\",\n            \"phoneCode\": \"84\",\n            \"emoji\": \"🇻🇳\",\n            \"emojiUnicode\": \"U+1F1FB U+1F1F3\",\n            \"timezone\": \"Asia/Ho_Chi_Minh\"\n        },\n        {\n            \"name\": \"Vanuatu\",\n            \"isoCode\": \"VU\",\n            \"phoneCode\": \"678\",\n            \"emoji\": \"🇻🇺\",\n            \"emojiUnicode\": \"U+1F1FB U+1F1FA\",\n            \"timezone\": \"Pacific/Efate\"\n        },\n        {\n            \"name\": \"Wallis and Futuna\",\n            \"isoCode\": \"WF\",\n            \"phoneCode\": \"681\",\n            \"emoji\": \"🇼🇫\",\n            \"emojiUnicode\": \"U+1F1FC U+1F1EB\",\n            \"timezone\": \"Pacific/Wallis\"\n        },\n        {\n            \"name\": \"Samoa\",\n            \"isoCode\": \"WS\",\n            \"phoneCode\": \"685\",\n            \"emoji\": \"🇼🇸\",\n            \"emojiUnicode\": \"U+1F1FC U+1F1F8\",\n            \"timezone\": \"Pacific/Apia\"\n        },\n        {\n            \"name\": \"Kosovo\",\n            \"isoCode\": \"XK\",\n            \"phoneCode\": \"377,381,383,386\",\n            \"emoji\": \"🇽🇰\",\n            \"emojiUnicode\": \"U+1F1FD U+1F1F0\",\n            \"timezone\": \"null\"\n        },\n        {\n            \"name\": \"Yemen\",\n            \"isoCode\": \"YE\",\n            \"phoneCode\": \"967\",\n            \"emoji\": \"🇾🇪\",\n            \"emojiUnicode\": \"U+1F1FE U+1F1EA\",\n            \"timezone\": \"Asia/Aden\"\n        },\n        {\n            \"name\": \"Mayotte\",\n            \"isoCode\": \"YT\",\n            \"phoneCode\": \"262\",\n            \"emoji\": \"🇾🇹\",\n            \"emojiUnicode\": \"U+1F1FE U+1F1F9\",\n            \"timezone\": \"Indian/Mayotte\"\n        },\n        {\n            \"name\": \"South Africa\",\n            \"isoCode\": \"ZA\",\n            \"phoneCode\": \"27\",\n            \"emoji\": \"🇿🇦\",\n            \"emojiUnicode\": \"U+1F1FF U+1F1E6\",\n            \"timezone\": \"Africa/Johannesburg\"\n        },\n        {\n            \"name\": \"Zambia\",\n            \"isoCode\": \"ZM\",\n            \"phoneCode\": \"260\",\n            \"emoji\": \"🇿🇲\",\n            \"emojiUnicode\": \"U+1F1FF U+1F1F2\",\n            \"timezone\": \"Africa/Lusaka\"\n        },\n        {\n            \"name\": \"Zimbabwe\",\n            \"isoCode\": \"ZW\",\n            \"phoneCode\": \"263\",\n            \"emoji\": \"🇿🇼\",\n            \"emojiUnicode\": \"U+1F1FF U+1F1FC\",\n            \"timezone\": \"Africa/Harare\"\n        }\n    ],\n    \"meta\": {}\n}"
+						}
+					]
+				}
+			],
+			"_postman_id": "0ea0dc34-f3da-4def-b53c-b3279a893be6"
+		},
+		{
+			"name": "Cities",
+			"item": [
+				{
+					"name": "Get Cities ",
+					"_postman_id": "f122e5c4-6b26-46dc-a5b6-48e852f6ba9c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "ar"
+							},
+							{
+								"key": "X-User-Id",
+								"value": "1",
+								"disabled": true
+							},
+							{
+								"key": "X-User-Uuid",
+								"value": "1",
+								"disabled": true
+							},
+							{
+								"key": "X-Client-Code",
+								"value": "mp"
+							},
+							{
+								"key": "x-api-key",
+								"value": "AA5dfUUZU8i1qy9FhAIAugzoPuPrZDlA"
+							}
+						],
+						"url": {
+							"raw": "https://maf-properties-dev.apigee.net/shared-core/v1/countries/:Iso3code/cities",
+							"protocol": "https",
+							"host": [
+								"maf-properties-dev",
+								"apigee",
+								"net"
+							],
+							"path": [
+								"shared-core",
+								"v1",
+								"countries",
+								":Iso3code",
+								"cities"
+							],
+							"variable": [
+								{
+									"id": "26c3743d-1ec1-4179-b9af-db01ef60c349",
+									"key": "Iso3code",
+									"value": "ARE",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "3d68d80a-fa78-4f7d-b237-8b7c236b17cc",
+							"name": "Get Cities ",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "ar"
+									},
+									{
+										"key": "X-User-Id",
+										"value": "1",
+										"disabled": true
+									},
+									{
+										"key": "X-User-Uuid",
+										"value": "1",
+										"disabled": true
+									},
+									{
+										"key": "X-Client-Code",
+										"value": "mp"
+									},
+									{
+										"key": "x-api-key",
+										"value": "AA5dfUUZU8i1qy9FhAIAugzoPuPrZDlA"
+									}
+								],
+								"url": {
+									"raw": "https://maf-properties-dev.apigee.net/shared-core/v1/countries/:Iso3code/cities",
+									"protocol": "https",
+									"host": [
+										"maf-properties-dev",
+										"apigee",
+										"net"
+									],
+									"path": [
+										"shared-core",
+										"v1",
+										"countries",
+										":Iso3code",
+										"cities"
+									],
+									"variable": [
+										{
+											"key": "Iso3code",
+											"value": "ARE"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 29 Nov 2021 08:52:46 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "3788"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "x-amzn-RequestId",
+									"value": "16df46db-de1a-4ad3-96f1-9a71480b2bd0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "accept",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "x-amz-apigw-id",
+									"value": "JjwyvF1-liAFXoQ="
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "*"
+								},
+								{
+									"key": "X-Amzn-Trace-Id",
+									"value": "Root=1-61a494de-453faedc3f61dc9f33459b0a;Sampled=0"
+								},
+								{
+									"key": "X-Cache",
+									"value": "Miss from cloudfront"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 812340d4e76cb03e2d09a3ae9f9fd8b8.cloudfront.net (CloudFront)"
+								},
+								{
+									"key": "X-Amz-Cf-Pop",
+									"value": "LHR3-C2"
+								},
+								{
+									"key": "X-Amz-Cf-Id",
+									"value": "CbW0p8hMRqyNIFp7gslLenJAbhao4aLjR58_lZJVBxWNai6JPLyAiw=="
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"requestId\": \"4e6cc249-1fbf-46d9-ac70-5bc00a6ac47d\",\n    \"timestamps\": \"2021-11-29T08:52:46.617Z\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Abadilah\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Abu Dhabi\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Abu Hayl\"\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Abu Shagara\"\n        },\n        {\n            \"id\": 5,\n            \"name\": \"Adhan\"\n        },\n        {\n            \"id\": 6,\n            \"name\": \"Ajman City\"\n        },\n        {\n            \"id\": 7,\n            \"name\": \"Akamiyah\"\n        },\n        {\n            \"id\": 8,\n            \"name\": \"Al Ain City\"\n        },\n        {\n            \"id\": 9,\n            \"name\": \"Al Ardiyah\"\n        },\n        {\n            \"id\": 10,\n            \"name\": \"Al Azrah\"\n        },\n        {\n            \"id\": 11,\n            \"name\": \"Al Dharbaniyah\"\n        },\n        {\n            \"id\": 12,\n            \"name\": \"Al Dhayd\"\n        },\n        {\n            \"id\": 13,\n            \"name\": \"Al Duss\"\n        },\n        {\n            \"id\": 14,\n            \"name\": \"Al Fahiya\"\n        },\n        {\n            \"id\": 15,\n            \"name\": \"Al Falaj\"\n        },\n        {\n            \"id\": 16,\n            \"name\": \"Al Fulayyah\"\n        },\n        {\n            \"id\": 17,\n            \"name\": \"Al Hamraniyah\"\n        },\n        {\n            \"id\": 18,\n            \"name\": \"Al Hamriyah\"\n        },\n        {\n            \"id\": 19,\n            \"name\": \"Al Hayl\"\n        },\n        {\n            \"id\": 20,\n            \"name\": \"Al Hayr\"\n        },\n        {\n            \"id\": 21,\n            \"name\": \"Al Jazirah\"\n        },\n        {\n            \"id\": 22,\n            \"name\": \"Al Jazirah Al Hamra\"\n        },\n        {\n            \"id\": 23,\n            \"name\": \"Al Khan\"\n        },\n        {\n            \"id\": 24,\n            \"name\": \"Al Khashfah\"\n        },\n        {\n            \"id\": 25,\n            \"name\": \"Al Khatem\"\n        },\n        {\n            \"id\": 26,\n            \"name\": \"Al Mafraq\"\n        },\n        {\n            \"id\": 27,\n            \"name\": \"Al Manak\"\n        },\n        {\n            \"id\": 28,\n            \"name\": \"Al Manamah\"\n        },\n        {\n            \"id\": 29,\n            \"name\": \"Al Maqta\"\n        },\n        {\n            \"id\": 30,\n            \"name\": \"Al Marfa\"\n        },\n        {\n            \"id\": 31,\n            \"name\": \"Al Qazimiya\"\n        },\n        {\n            \"id\": 32,\n            \"name\": \"Al Qouz\"\n        },\n        {\n            \"id\": 33,\n            \"name\": \"Al Rafa'ah\"\n        },\n        {\n            \"id\": 34,\n            \"name\": \"Al Rams\"\n        },\n        {\n            \"id\": 35,\n            \"name\": \"Al Ruwaiya\"\n        },\n        {\n            \"id\": 36,\n            \"name\": \"Al Ruways\"\n        },\n        {\n            \"id\": 37,\n            \"name\": \"Al Sha'M\"\n        },\n        {\n            \"id\": 38,\n            \"name\": \"Al Tawoon\"\n        },\n        {\n            \"id\": 39,\n            \"name\": \"Al Wasit\"\n        },\n        {\n            \"id\": 40,\n            \"name\": \"Al Zahra\"\n        },\n        {\n            \"id\": 41,\n            \"name\": \"Awanat\"\n        },\n        {\n            \"id\": 42,\n            \"name\": \"Badiyah\"\n        },\n        {\n            \"id\": 43,\n            \"name\": \"Bur Dubai\"\n        },\n        {\n            \"id\": 44,\n            \"name\": \"Bustan\"\n        },\n        {\n            \"id\": 45,\n            \"name\": \"Buteen\"\n        },\n        {\n            \"id\": 46,\n            \"name\": \"Buteena\"\n        },\n        {\n            \"id\": 47,\n            \"name\": \"Dasman\"\n        },\n        {\n            \"id\": 48,\n            \"name\": \"Deira\"\n        },\n        {\n            \"id\": 49,\n            \"name\": \"Dhaid\"\n        },\n        {\n            \"id\": 50,\n            \"name\": \"Diba\"\n        },\n        {\n            \"id\": 51,\n            \"name\": \"Diba Al Bay'a\"\n        },\n        {\n            \"id\": 52,\n            \"name\": \"Diba Al Hesn\"\n        },\n        {\n            \"id\": 53,\n            \"name\": \"Dubai\"\n        },\n        {\n            \"id\": 54,\n            \"name\": \"Dubai Internet City\"\n        },\n        {\n            \"id\": 55,\n            \"name\": \"Falaj Al Mulla\"\n        },\n        {\n            \"id\": 56,\n            \"name\": \"Fujairah\"\n        },\n        {\n            \"id\": 57,\n            \"name\": \"Furfar\"\n        },\n        {\n            \"id\": 58,\n            \"name\": \"Ganthoot\"\n        },\n        {\n            \"id\": 59,\n            \"name\": \"Ghafia\"\n        },\n        {\n            \"id\": 60,\n            \"name\": \"Ghubaiba\"\n        },\n        {\n            \"id\": 61,\n            \"name\": \"Ghurfah\"\n        },\n        {\n            \"id\": 62,\n            \"name\": \"Habshan\"\n        },\n        {\n            \"id\": 63,\n            \"name\": \"Hamariya\"\n        },\n        {\n            \"id\": 64,\n            \"name\": \"Hassan Dibba\"\n        },\n        {\n            \"id\": 65,\n            \"name\": \"Hatta\"\n        },\n        {\n            \"id\": 66,\n            \"name\": \"Horl Al Anz\"\n        },\n        {\n            \"id\": 67,\n            \"name\": \"Jarf\"\n        },\n        {\n            \"id\": 68,\n            \"name\": \"Jazzat\"\n        },\n        {\n            \"id\": 69,\n            \"name\": \"Jebal Ali\"\n        },\n        {\n            \"id\": 70,\n            \"name\": \"Jumeirah\"\n        },\n        {\n            \"id\": 71,\n            \"name\": \"Kalba\"\n        },\n        {\n            \"id\": 72,\n            \"name\": \"Karama\"\n        },\n        {\n            \"id\": 73,\n            \"name\": \"Khannur\"\n        },\n        {\n            \"id\": 74,\n            \"name\": \"Kharayan\"\n        },\n        {\n            \"id\": 75,\n            \"name\": \"Kharran\"\n        },\n        {\n            \"id\": 76,\n            \"name\": \"Khatt\"\n        },\n        {\n            \"id\": 77,\n            \"name\": \"Khawr Fakkan\"\n        },\n        {\n            \"id\": 78,\n            \"name\": \"Khawr Kalba\"\n        },\n        {\n            \"id\": 79,\n            \"name\": \"Khawr Khuwayr\"\n        },\n        {\n            \"id\": 80,\n            \"name\": \"Kidfa\"\n        },\n        {\n            \"id\": 81,\n            \"name\": \"Layyah\"\n        },\n        {\n            \"id\": 82,\n            \"name\": \"Mafraq\"\n        },\n        {\n            \"id\": 83,\n            \"name\": \"Maisaloon\"\n        },\n        {\n            \"id\": 84,\n            \"name\": \"Majjarah\"\n        },\n        {\n            \"id\": 85,\n            \"name\": \"Mansoora\"\n        },\n        {\n            \"id\": 86,\n            \"name\": \"Masafi\"\n        },\n        {\n            \"id\": 87,\n            \"name\": \"Masfut\"\n        },\n        {\n            \"id\": 88,\n            \"name\": \"Mina Sufooh\"\n        },\n        {\n            \"id\": 89,\n            \"name\": \"Mirdif\"\n        },\n        {\n            \"id\": 90,\n            \"name\": \"Mushrif\"\n        },\n        {\n            \"id\": 91,\n            \"name\": \"Mussafah\"\n        },\n        {\n            \"id\": 92,\n            \"name\": \"Muwafja\"\n        },\n        {\n            \"id\": 93,\n            \"name\": \"Nabbah\"\n        },\n        {\n            \"id\": 94,\n            \"name\": \"Nakheel\"\n        },\n        {\n            \"id\": 95,\n            \"name\": \"Nakheelat\"\n        },\n        {\n            \"id\": 96,\n            \"name\": \"Nasariya\"\n        },\n        {\n            \"id\": 97,\n            \"name\": \"Qasimiya\"\n        },\n        {\n            \"id\": 98,\n            \"name\": \"Qidfa\"\n        },\n        {\n            \"id\": 99,\n            \"name\": \"Qusais\"\n        },\n        {\n            \"id\": 100,\n            \"name\": \"Ramaqiya\"\n        },\n        {\n            \"id\": 101,\n            \"name\": \"Ramlah\"\n        },\n        {\n            \"id\": 102,\n            \"name\": \"Ramtha\"\n        },\n        {\n            \"id\": 103,\n            \"name\": \"Ras Al Khaimah city\"\n        },\n        {\n            \"id\": 104,\n            \"name\": \"Rashidya\"\n        },\n        {\n            \"id\": 105,\n            \"name\": \"Reem Community\"\n        },\n        {\n            \"id\": 106,\n            \"name\": \"Rima\"\n        },\n        {\n            \"id\": 107,\n            \"name\": \"Rolla\"\n        },\n        {\n            \"id\": 108,\n            \"name\": \"Rughaylat\"\n        },\n        {\n            \"id\": 109,\n            \"name\": \"Saabah\"\n        },\n        {\n            \"id\": 110,\n            \"name\": \"Saif\"\n        },\n        {\n            \"id\": 111,\n            \"name\": \"Samnan\"\n        },\n        {\n            \"id\": 112,\n            \"name\": \"Saqamqam\"\n        },\n        {\n            \"id\": 113,\n            \"name\": \"Satwa\"\n        },\n        {\n            \"id\": 114,\n            \"name\": \"Shahba\"\n        },\n        {\n            \"id\": 115,\n            \"name\": \"Sham\"\n        },\n        {\n            \"id\": 116,\n            \"name\": \"Shandaghah\"\n        },\n        {\n            \"id\": 117,\n            \"name\": \"Sharjah\"\n        },\n        {\n            \"id\": 118,\n            \"name\": \"Sherqan\"\n        },\n        {\n            \"id\": 119,\n            \"name\": \"Siji\"\n        },\n        {\n            \"id\": 120,\n            \"name\": \"Sila\"\n        },\n        {\n            \"id\": 121,\n            \"name\": \"Suwayhan\"\n        },\n        {\n            \"id\": 122,\n            \"name\": \"Sweihan\"\n        },\n        {\n            \"id\": 123,\n            \"name\": \"Tarif Kalba\"\n        },\n        {\n            \"id\": 124,\n            \"name\": \"Um Al Nar\"\n        },\n        {\n            \"id\": 125,\n            \"name\": \"Um Al Quiwan\"\n        },\n        {\n            \"id\": 126,\n            \"name\": \"Umm Kanoor\"\n        },\n        {\n            \"id\": 127,\n            \"name\": \"Wadi Shi\"\n        },\n        {\n            \"id\": 128,\n            \"name\": \"Warsan\"\n        },\n        {\n            \"id\": 129,\n            \"name\": \"Wasit\"\n        },\n        {\n            \"id\": 130,\n            \"name\": \"Yarmook\"\n        }\n    ],\n    \"meta\": {}\n}"
+						}
+					]
+				}
+			],
+			"_postman_id": "ecd8c072-87e7-4b9c-ab7e-2324f6cad814"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "5b8919f5-34a3-4e46-a73a-79d1933e01b7"
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "c8c42798-db91-421f-a38d-d856da7a8ca3"
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "7461f82f-2d16-4136-a47a-89a8e311f40c",
+			"key": "Token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
