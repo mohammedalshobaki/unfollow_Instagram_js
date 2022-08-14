@@ -1083,7 +1083,10 @@
 					},
 					"request": {
 						"auth": {
-							"type": "noauth"
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlFrVkVORGM0TlRWRVJqQXlORVUxUmtNNU9UUkRRVFJHTnpWRlF6UkNRVU01TURaQ01VRXpOUSJ9.eyJodHRwczovL21hZi5ncmF2dHkuYXV0aC9kZXYvYXBpL21lbWJlcklkIjoiOTQ3ODQwMDAwMTA1Mjc2NiIsImh0dHBzOi8vbWFmLmdyYXZ0eS5hdXRoL2Rldi9hcGkvdm94Q2FyZE51bWJlciI6Ijk0Nzg0MDAwMDEwNTI3NjYiLCJodHRwczovL21hZi5ncmF2dHkuYXV0aC9kZXYvYXBpL2VtYWlsIjoibWUrMkBpaHVzbmkuY29tIiwiaHR0cHM6Ly9tYWYuaWRlbnRpdHkuYXV0aC9kZXYvYXBpL2VtYWlsIjoibWUrMkBpaHVzbmkuY29tIiwiaHR0cHM6Ly9tYWYuaWRlbnRpdHkuYXV0aC9kZXYvYXBpL3JpZCI6bnVsbCwiaHR0cHM6Ly9tYWYuaWRlbnRpdHkuYXV0aC9kZXYvYXBpL21pcmFrbF9zaG9wX2lkIjpudWxsLCJodHRwczovL21hZi5pZGVudGl0eS5hdXRoL2Rldi9hcGkvdGltZSI6IjIwMjItMDgtMTRUMDk6NTM6NTYuMzAwWiIsImh0dHBzOi8vbWFmLmdyYXZ0eS5hdXRoL2Rldi9hcGkvdXVpZCI6IjM3MzhmZWE3LWNhOTYtNDZmMi04NTA2LWQ4ZWIyOGRlZTU5MiIsImh0dHBzOi8vbWFmLmlkZW50aXR5LmF1dGgvZGV2L2FwaS91dWlkIjoiMzczOGZlYTctY2E5Ni00NmYyLTg1MDYtZDhlYjI4ZGVlNTkyIiwiaHR0cHM6Ly9tYWYuaWRlbnRpdHkuYXV0aC9kZXYvYXBpL2VtYWlsX3ZlcmlmaWVkIjp0cnVlLCJodHRwczovL3Byb2ZpbGUvbW9iaWxlIjoiKzk2Mjc5OTAwNzk3NiIsImh0dHBzOi8vcHJvZmlsZS9maXJzdE5hbWUiOiJodXNuaSIsImh0dHBzOi8vcHJvZmlsZS9sYXN0TmFtZSI6ImFycW91YiIsImlzcyI6Imh0dHBzOi8vc2l0Lm1hZi1kZXYuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDYxMTUxYWEwMTBhYmVkNDQ2N2E3M2Q5OCIsImF1ZCI6WyJodHRwczovL3NpdC5tYWYtZGV2LmF1dGgwLmNvbS9hcGkvdjIvIiwiaHR0cHM6Ly9zaXQubWFmLWRldi5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjYwNDcwODM2LCJleHAiOjE2NjMwNjI4MzYsImF6cCI6InRNakU5ZkRZWXIwV3paSWN1SmZpeTV3MmRQYlZPUlZWIiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCBhZGRyZXNzIHBob25lIHJlYWQ6Y3VycmVudF91c2VyIHVwZGF0ZTpjdXJyZW50X3VzZXJfbWV0YWRhdGEgZGVsZXRlOmN1cnJlbnRfdXNlcl9tZXRhZGF0YSBjcmVhdGU6Y3VycmVudF91c2VyX21ldGFkYXRhIGNyZWF0ZTpjdXJyZW50X3VzZXJfZGV2aWNlX2NyZWRlbnRpYWxzIGRlbGV0ZTpjdXJyZW50X3VzZXJfZGV2aWNlX2NyZWRlbnRpYWxzIHVwZGF0ZTpjdXJyZW50X3VzZXJfaWRlbnRpdGllcyIsImd0eSI6InBhc3N3b3JkIn0.zryAkybwpD1i0tYZj7DuTM7tAKntHmEu7Cq9FARv6ROKR7AWmUck7g9uyBISYtpjVhEwdrMxIZKT1WuMuK3JVWjDYh8o4DLLJ17yaNYsKdD4vMDnzCl4IBmE18xJh_Xqk2hyXHFo-yJKQ45ZFu692Dzg5g4iSjZruvq0qFS_7fmLUKow-dftpF_HhR6J4gLYg16o-mCUtydMos0ICrOTtbp_tG09GE1r59tpuix5DNjf9EqkrTB8Na-rvy6O2pA3vwGGtBTNKYXxOOFjel2bqMcYc4g1_hN3ueiXn7LP98Bp22MIbSXA0EOjvpTjhfUfhpApwneu_FjxjkRlL9SHSQ"
+							}
 						},
 						"method": "GET",
 						"header": [
@@ -1115,7 +1118,7 @@
 								"type": "text"
 							}
 						],
-						"url": "{{url}}/shared-core/v1/countries",
+						"url": "http://127.0.0.1:3000/v1/countries",
 						"description": "# List Countries\nlists countries for user, with their details\n## Header\n- Accept-Language : choose language to retrieve name in that language ('ar', 'en') \n\n## Response\n- name: name of country (according to chosen \"Accept-Language\")\n- isoCode: unique for each country (two letters)\n- phoneNumber: each countries phone code \n- emoji: flag for each country\n- emojiUnicode: Unicode for each emoji\n- timezone: time for each country"
 					},
 					"response": [
@@ -1408,7 +1411,7 @@
 	],
 	"variable": [
 		{
-			"id": "9aa7c2a3-1cac-4737-810d-ccba2927b1ed",
+			"id": "753918ec-e2fa-483c-b7bd-3ba61eeb002e",
 			"key": "Token",
 			"value": ""
 		}
