@@ -1098,8 +1098,7 @@
 							{
 								"key": "X-User-Id",
 								"value": "1",
-								"type": "text",
-								"disabled": true
+								"type": "text"
 							},
 							{
 								"key": "X-User-Uuid",
@@ -1114,7 +1113,7 @@
 							},
 							{
 								"key": "x-api-key",
-								"value": "{{x-api-key}}",
+								"value": "",
 								"type": "text"
 							}
 						],
@@ -1411,7 +1410,7 @@
 	],
 	"variable": [
 		{
-			"id": "753918ec-e2fa-483c-b7bd-3ba61eeb002e",
+			"id": "3965002d-9d8a-4481-bb5d-7552b7a0307e",
 			"key": "Token",
 			"value": ""
 		}
