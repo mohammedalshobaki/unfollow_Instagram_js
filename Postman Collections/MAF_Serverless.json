@@ -582,7 +582,7 @@
 							},
 							{
 								"key": "x-api-key",
-								"value": "{{x-api-key}}",
+								"value": "",
 								"type": "text"
 							},
 							{
@@ -1403,7 +1403,7 @@
 	],
 	"variable": [
 		{
-			"id": "ccc9b46a-3032-4fe3-8de7-625bc16e9f55",
+			"id": "f1e13cb9-1dbc-4c98-9cb1-f014f3094b03",
 			"key": "Token",
 			"value": ""
 		}
