@@ -589,6 +589,11 @@
 								"key": "Content-Type",
 								"value": "application/json",
 								"type": "text"
+							},
+							{
+								"key": "x-user-id",
+								"value": "shobaki",
+								"type": "text"
 							}
 						],
 						"url": "http://127.0.0.1:3000/v1/addresses/"
@@ -1403,7 +1408,7 @@
 	],
 	"variable": [
 		{
-			"id": "f1e13cb9-1dbc-4c98-9cb1-f014f3094b03",
+			"id": "9aa7c2a3-1cac-4737-810d-ccba2927b1ed",
 			"key": "Token",
 			"value": ""
 		}
