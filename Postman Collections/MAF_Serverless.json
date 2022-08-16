@@ -1103,8 +1103,7 @@
 							{
 								"key": "X-User-Uuid",
 								"value": "1",
-								"type": "text",
-								"disabled": true
+								"type": "text"
 							},
 							{
 								"key": "X-Client-Code",
@@ -1410,7 +1409,7 @@
 	],
 	"variable": [
 		{
-			"id": "3965002d-9d8a-4481-bb5d-7552b7a0307e",
+			"id": "12fe647c-8610-457b-90dc-380f1c8fbc54",
 			"key": "Token",
 			"value": ""
 		}
